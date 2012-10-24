@@ -8,6 +8,10 @@
     <%= f.label :release_year %><br />
     <%= f.text_field :release_year %>
   </div>
+  <div class="field">
+    <%= f.label :genre %>
+    <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

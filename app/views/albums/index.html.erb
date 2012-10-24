@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Release (Year)</th>
+    <th>Genre</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= album.name %></td>
     <td><%= album.release_year %></td>
+    <td><%= album.genre.name %></td>
     <td><%= link_to 'Show', album %></td>
     <td><%= link_to 'Edit', edit_album_path(album) %></td>
     <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
