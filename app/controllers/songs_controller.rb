@@ -11,19 +11,19 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
-  def edit
-    @song = Song.find(params[:id])
-  end
-
   def create
     @song = Song.new(params[:song])
 
     if @song.save
-      redirect_to songs_path, notice: 'Song was successfully created.'
+      redirect_to songs_path, notice: 'song was successfully created.'
     else
       render :new
     end
   end
+
+  def edit
+    @song = Song.find(params[:id])
+  end  
 
   def update
     @song = Song.find(params[:id])
