@@ -16,3 +16,6 @@
 
 # Ignore .rvmrc
 .rvmrc
+
+# Ignore /public/uploads
+/public/uploads
