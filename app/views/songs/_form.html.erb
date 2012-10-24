@@ -12,6 +12,15 @@
     <%= f.label :audiofile %><br />
     <%= f.file_field :audiofile %>
   </div>
+  <div class="field">
+  <h4>Artists</h4>
+    <% Artist.all.each do |a| %>
+  <br>
+    <%= check_box_tag a.name, a.id %>
+    <%= a.name %>
+  <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
