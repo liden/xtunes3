@@ -20,6 +20,10 @@
     <%= a.name %>
   <% end %>
   </div>
+  <div class="field">
+    <%= f.label :album %>
+    <%= f.select :album_id, Album.all.map{ |album| [album.name, album.id]} %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
