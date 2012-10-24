@@ -6,7 +6,18 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+
+# Carrierwave for file uploads
 gem 'carrierwave'
+
+# Fog for uploading files to S3
+gem 'fog'
+
+# Foreman for using environment variables locally
+gem 'foreman'
+
+# Thin for using foreman
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.

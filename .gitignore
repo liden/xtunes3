@@ -19,3 +19,9 @@
 
 # Ignore /public/uploads
 /public/uploads
+
+# Ignore .env
+.env 
+
+# Ignore Procfile
+Procfile
