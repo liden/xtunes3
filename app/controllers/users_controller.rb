@@ -3,23 +3,23 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def show
-  #   @album = Album.find(params[:id])
-  # end
+  def show
+    @user = User.find(params[:id])
+  end
 
-  # def new
-  #   @album = Album.new
-  # end
+  def new
+    @user = User.new
+  end
 
-  # def create
-  #   @album = Album.new(params[:album])
+  def create
+    @user = User.new(params[:user])
 
-  #   if @album.save
-  #     redirect_to albums_path, notice: 'album was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
+    if @user.save
+      redirect_to users_path, notice: 'user was successfully created.'
+    else
+      render :new
+    end
+  end
 
   # def edit
   #   @album = Album.find(params[:id])
