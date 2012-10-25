@@ -1,4 +1,7 @@
 Xtunes3::Application.routes.draw do
+
+  match '/home' => 'home#home'
+
   resources :posts
   resources :songs
   resources :artists
