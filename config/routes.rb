@@ -1,6 +1,8 @@
 Xtunes3::Application.routes.draw do
 
   match '/home' => 'home#home'
+  match '/register' => 'accounts#register', :via => :get
+  match '/register' => 'accounts#create', :via => :post
 
   resources :posts
   resources :songs
