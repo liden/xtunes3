@@ -12,16 +12,17 @@
     <%= f.label :audiofile %><br />
     <%= f.file_field :audiofile %>
   </div>
+
   <div class="field">
-  <h4>Artists</h4>
-    <% Artist.all.each do |a| %>
-  <br>
-    <%= check_box_tag a.name, a.id %>
-    <%= a.name %>
-  <% end %>
+    <%= f.label :artist %><br />
+    <% Artist.all.each do |artist| %>
+      <%= check_box_tag 'song[artist_ids][]', artist.id, @song.artists.compact.include?(artist) %>
+      <%= artist.name %>
+    <% end %>
   </div>
+
   <div class="field">
-    <%= f.label :album %>
+    <%= f.label :album %><br />
     <%= f.select :album_id, Album.all.map{ |album| [album.name, album.id]} %>
   </div>
 
