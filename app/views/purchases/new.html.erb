@@ -1,9 +1,5 @@
-<%= form_for(@purchase) do |f| %>
+<h1>New Purchase</h1>
 
+<%= render 'form' %>
 
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= link_to 'Back', purchases_path %>

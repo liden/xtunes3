@@ -8,10 +8,14 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(params[:purchase])
 
     if @purchase.save
-      redirect_to purchases_path, notice: 'purchase was successfully created.'
+      redirect_to purchases_path, notice: 'purchase was completed.'
     else
       render :new
     end
+  end
+
+  def show
+    @purchase = Purchase.find(params[:id])
   end
 
 end
