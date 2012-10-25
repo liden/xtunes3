@@ -25,3 +25,6 @@
 
 # Ignore Procfile
 Procfile
+
+# Ignore .DS_Store Mac files
+.DS_Store
