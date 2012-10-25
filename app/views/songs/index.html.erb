@@ -4,19 +4,23 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
-    <th>Album</th>
     <th>Artists</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Album</th>
+    <th>Details</th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
 <% @songs.each do |song| %>
   <tr>
     <td><%= song.name %></td>
     <td><%= song.price %></td>
+    <td>
+      <% song.artists.each do |a|%>
+        <%= a.name %>
+      <% end %>
+    </td>
     <td><%= song.album.try(:name) %></td>
-    <td></td>
 
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
