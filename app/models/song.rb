@@ -11,8 +11,7 @@
 #
 
 class Song < ActiveRecord::Base
-  attr_accessible :name, :price, :audiofile, :album_ids, :genre_ids, :artist_tokens
-
+  attr_accessible :name, :price, :audiofile, :album_ids, :genre_ids, :artist_ids
 
   has_and_belongs_to_many :albums
   has_and_belongs_to_many :artists
@@ -20,12 +19,7 @@ class Song < ActiveRecord::Base
 
   has_many :purchases
   has_many :users, :through => :purchases
-  attr_reader :artist_tokens
 
   mount_uploader :audiofile, AudiofileUploader
-
-  def artist_tokens=(ids)
-    self.artist_ids = ids.split(",")
-  end
 
 end

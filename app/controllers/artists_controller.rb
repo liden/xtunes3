@@ -1,10 +1,6 @@
 class ArtistsController < ApplicationController
   def index
     @artists = Artist.order(:name)
-    respond_to do |format|
-      format.html
-      format.json { render json: @artists.tokens(params[:id]) }
-    end
   end
 
   def show

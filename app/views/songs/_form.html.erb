@@ -13,9 +13,9 @@
     <%= f.file_field :audiofile %>
   </div>
 
-  <div class="field">
-    <%= f.label :artist_tokens, "Artists" %><br />
-    <%= f.text_field :artist_tokens, data: {load: @song.artists} %>
+    <div class="field">
+    <%= f.label :artist_ids, "Artists" %><br />
+    <%= f.collection_select :artist_ids, Artist.order(:name), :id, :name, {}, {multiple: true} %>
   </div>
 
   <div class="field">
