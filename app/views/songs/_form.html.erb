@@ -19,13 +19,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :genre %>
-    <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id]} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :album %><br />
-    <%= f.select :album_id, Album.all.map{ |album| [album.name, album.id]} %>
+    <%= f.label :album_ids, "Albums" %><br />
+    <%= f.collection_select :album_ids, Album.order(:name), :id, :name, {}, {multiple: true} %>
   </div>
 
   <div class="actions">
