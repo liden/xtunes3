@@ -23,6 +23,11 @@
     <%= f.collection_select :album_ids, Album.order(:name), :id, :name, {}, {multiple: true} %>
   </div>
 
+  <div class="field">
+    <%= f.label :genre_ids, "Genres" %><br />
+    <%= f.collection_select :genre_ids, Genre.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

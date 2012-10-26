@@ -5,7 +5,8 @@
     <th>Name</th>
     <th>Price</th>
     <th>Artists</th>
-    <th>Album</th>
+    <th>Albums</th>
+    <th>Genres</th>
     <th>Details</th>
     <th>Edit</th>
     <th>Destroy</th>
@@ -23,6 +24,11 @@
     <td>
       <% song.albums.each do |alb|%>
         <%= alb.name %>
+      <% end %>
+    </td>
+    <td>
+    <% song.genres.each do |gen|%>
+        <%= gen.name %>
       <% end %>
     </td>
 
