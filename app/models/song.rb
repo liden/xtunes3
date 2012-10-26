@@ -8,7 +8,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  audiofile  :string(255)
-#  album_id   :integer
 #
 
 class Song < ActiveRecord::Base
