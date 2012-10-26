@@ -5,9 +5,9 @@ class AccountsController < ApplicationController
   end
 
   def create
-    user = User.new(params[:user])
+    @user = User.new(params[:user])
 
-    if user.save
+    if @user.save
       redirect_to home_path
     else
       render :register

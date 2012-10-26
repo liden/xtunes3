@@ -1,17 +1,16 @@
-
 <%= form_tag '/register' do %>
 
   <%= label_tag 'name' %>
-  <%= text_field_tag 'name[user]' %>
+  <%= text_field_tag 'user[name]' %>
 
   <%= label_tag 'email' %>
-  <%= text_field_tag 'email[user]' %>
+  <%= text_field_tag 'user[email]' %>
 
   <%= label_tag 'password' %>
-  <%= password_field_tag 'password[user]' %>
+  <%= password_field_tag 'user[password]' %>
 
   <%= label_tag 'password_confirmation' %>
-  <%= password_field_tag 'password_confirmation[user]' %>
+  <%= password_field_tag 'user[password_confirmation]' %>
 
   <br>
   <%= submit_tag 'Register User' %>
