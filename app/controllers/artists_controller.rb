@@ -1,10 +1,14 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    @artists = Artist.order(:name)
+    respond_to do |format|
+      format.html
+      format.json { render json: @artists.tokens(params[:id]) }
+    end
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @artist = Artist.find(params[:q])
   end
 
   def new
@@ -40,6 +44,6 @@ class ArtistsController < ApplicationController
     @artist.destroy
 
     redirect_to artists_path
-  end  
+  end
 
 end
