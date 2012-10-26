@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   def index
-    @genres = Genre.all
+    @genres = Genre.order(:name)
   end
 
   # def show
@@ -40,6 +40,6 @@ class GenresController < ApplicationController
     @genre.destroy
 
     redirect_to genres_path
-  end  
+  end
 
 end

@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = Album.order(:name)
   end
 
   def show
@@ -40,6 +40,6 @@ class AlbumsController < ApplicationController
     @album.destroy
 
     redirect_to albums_path
-  end  
+  end
 
 end
