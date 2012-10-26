@@ -7,11 +7,9 @@
 #  release_year :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  genre_id     :integer
 #
 
 class Album < ActiveRecord::Base
-  attr_accessible :name, :release_year, :genre_id
-  belongs_to :genre
+  attr_accessible :name, :release_year
   has_many :songs
 end
