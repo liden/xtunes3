@@ -10,6 +10,6 @@
 #
 
 class Album < ActiveRecord::Base
-  attr_accessible :name, :release_year
-  has_many :songs
+  attr_accessible :name, :release_year, :song_ids
+  has_and_belongs_to_many :songs
 end
