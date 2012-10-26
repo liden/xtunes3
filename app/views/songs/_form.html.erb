@@ -14,11 +14,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :artist %><br />
-    <% @artists.each do |artist| %>
-      <%= check_box_tag 'song[artist_ids][]', artist.id, @song.artists.compact.include?(artist) %>
-      <%= artist.name %>
-    <% end %>
+    <%= f.label :artist_ids, "Artists" %><br />
+    <%= f.collection_select :artist_ids, Artist.order(:name), :id, :name, {}, {multiple: true} %>
   </div>
 
   <div class="field">
