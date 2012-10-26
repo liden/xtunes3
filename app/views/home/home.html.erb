@@ -19,7 +19,7 @@
       <% end %></td>
 
     <td><%= song.album.try(:name) %></td>
-    <td><%= song.price %></td>
+    <td><%= number_to_currency(song.price) %></td>
 
     <td><%= link_to 'Purchase', new_purchase_path(song) %></td>
   </tr>

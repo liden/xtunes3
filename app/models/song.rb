@@ -11,10 +11,12 @@
 #
 
 class Song < ActiveRecord::Base
-  attr_accessible :name, :price, :audiofile, :album_ids, :artist_ids
+  attr_accessible :name, :price, :audiofile, :album_ids, :artist_ids, :genre_ids
 
-  has_and_belongs_to_many :artists
+
   has_and_belongs_to_many :albums
+  has_and_belongs_to_many :artists
+  has_and_belongs_to_many :genres
 
   has_many :purchases
   has_many :users, :through => :purchases
