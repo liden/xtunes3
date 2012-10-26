@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "xTunes" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "xtunes" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -15,7 +15,14 @@
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
-
+          <a class="brand" href="#">xtunes</a>
+          <ul class="nav">
+            <li><a class="is_active" href="/home">Home</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/songs">Songs</a></li>
+            <li><%= show_login_link(@user) %></li>
+          </ul>
+        </div>
         </div>
       </nav>
     </header>

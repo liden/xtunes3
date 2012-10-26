@@ -1,4 +1,5 @@
-<h1>Welcome to xTunes</h1>
+<h1>hello.</h1>
+<h3>welcome to xtunes</h3>
 
 <table>
   <tr>
@@ -14,11 +15,15 @@
     <td><%= song.name %></td>
 
     <td>
-      <% song.artists.each do |a|%>
-        <%= a.name %>
+      <% song.artists.each do |art|%>
+        <%= art.name %>
       <% end %></td>
 
-    <td><%= song.album.try(:name) %></td>
+    <td>
+      <% song.albums.each do |alb|%>
+        <%= alb.name %>
+      <% end %></td>
+
     <td><%= number_to_currency(song.price) %></td>
 
     <td><%= link_to 'Purchase', new_purchase_path(song) %></td>

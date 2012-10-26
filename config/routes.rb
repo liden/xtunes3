@@ -4,6 +4,11 @@ Xtunes3::Application.routes.draw do
   match '/register' => 'accounts#register', :via => :get
   match '/register' => 'accounts#create', :via => :post
 
+  match '/login' => 'session#new', :via => :get
+  match '/login' => 'session#create', :via => :post
+
+  match '/logout' => 'session#destroy'
+
   resources :posts
   resources :songs
   resources :artists
