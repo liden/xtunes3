@@ -9,10 +9,13 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  admin           :boolean          default(FALSE)
+#  age             :integer
+#  gender          :string(255)
+#  avatar_file     :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation
 
   has_many :purchases
   has_many :songs, :through => :purchases
