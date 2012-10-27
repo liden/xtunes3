@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_filter :authorize, only: [:edit, :update]
+
   def index
     @users = User.all
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  # end
 
   def new
     @user = User.new
@@ -15,7 +17,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_path, notice: 'user was successfully created.'
+      session[:user_id] = @user.id
+      redirect_to home_path, notice: 'Thanks for signing up for xtunes!'
     else
       render :new
     end
@@ -25,21 +28,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update
-    @user = User.find(params[:id])
+  # def update
+  #   @user = User.find(params[:id])
 
-    if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: 'user was successfully updated.'
-    else
-      render :edit
-    end
-  end
+  #   if @user.update_attributes(params[:user])
+  #     redirect_to users_path, notice: 'user was successfully updated.'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
 
-    redirect_to users_path
-  end  
+  #   redirect_to users_path
+  # end
 
 end

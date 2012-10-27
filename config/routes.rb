@@ -1,13 +1,13 @@
 Xtunes3::Application.routes.draw do
 
   match '/home' => 'home#home'
-  match '/register' => 'accounts#register', :via => :get
-  match '/register' => 'accounts#create', :via => :post
 
-  match '/login' => 'session#new', :via => :get
-  match '/login' => 'session#create', :via => :post
+  match '/signup' => 'users#new', :via => :get
 
-  match '/logout' => 'session#destroy'
+  match '/login' => 'sessions#new', :via => :get
+  match '/login' => 'sessions#create', :via => :post
+
+  match '/logout' => 'sessions#destroy'
 
   resources :posts
   resources :songs
