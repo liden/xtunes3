@@ -1,18 +1,15 @@
-<h1>Edit User</h1>
+<h1>Edit Profile</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user do |f| %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label 'name' %><br />
+    <%= f.text_field 'name' %>
   </div>
+
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.label 'email' %><br />
+    <%= f.text_field 'email' %>
   </div>
 
   <div class="actions">
