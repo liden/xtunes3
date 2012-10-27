@@ -12,6 +12,22 @@
     <%= f.text_field 'email' %>
   </div>
 
+  <div class="field">
+    <%= f.label 'gender' %><br />
+    <%= radio_button('user', 'gender', 'female') %> female
+    <%= radio_button('user', 'gender', 'male') %> male
+  </div>
+
+  <div class="field">
+    <%= f.label 'age' %><br />
+    <%= f.number_field 'age' %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'avatar' %><br />
+    <%= f.file_field 'avatar' %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
