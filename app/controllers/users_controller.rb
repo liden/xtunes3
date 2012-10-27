@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path, notice: 'Thanks for signing up for xtunes!'
+      redirect_to home_path, notice: 'Hello! Welcome to xtunes!'
     else
       render :new
     end
