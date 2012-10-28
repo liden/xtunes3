@@ -4,10 +4,17 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :release_year %><br />
     <%= f.text_field :release_year %>
   </div>
+
+  <div class="field">
+    <%= f.label :cover_file %><br />
+    <%= f.file_field :cover_file %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
