@@ -11,7 +11,7 @@
 #
 
 class Album < ActiveRecord::Base
-  attr_accessible :name, :release_year, :cover_file, :song_ids
+  attr_accessible :name, :release_year, :cover_file, :remote_image_url, :song_ids
   has_and_belongs_to_many :songs
 
   has_many :artists, :through => :songs
