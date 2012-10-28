@@ -16,6 +16,6 @@ class Album < ActiveRecord::Base
 
   has_many :artists, :through => :songs
 
-  mount_uploader :cover_file, AudiofileUploader
+  mount_uploader :cover_file, PixfileUploader
 
 end
