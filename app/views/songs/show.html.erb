@@ -11,18 +11,24 @@
 </p>
 
 <p>
-  <b>Arists:</b>
-  <%=  %>
+  <b>Artists:</b>
+    <% @song.artists.each do |art|%>
+      <%= art.name %>
+    <% end %>
 </p>
 
 <p>
   <b>Albums:</b>
-  <%=  %>
+    <% @song.albums.each do |alb|%>
+      <%= alb.name %>
+    <% end %>
 </p>
 
 <p>
   <b>Genres:</b>
-  <%=  %>
+    <% @song.genres.each do |gen|%>
+      <%= gen.name %>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |

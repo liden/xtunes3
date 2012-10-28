@@ -12,4 +12,6 @@
 class Album < ActiveRecord::Base
   attr_accessible :name, :release_year, :song_ids
   has_and_belongs_to_many :songs
+
+  has_many :artists, :through => :songs
 end
