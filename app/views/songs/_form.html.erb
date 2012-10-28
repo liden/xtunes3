@@ -15,6 +15,11 @@
     <%= f.file_field :audiofile %>
   </div>
 
+  <div class="field">
+    <%= f.label :remote_audiofile_url, 'or add audio file URL' %><br />
+    <%= f.text_field :remote_audiofile_url %>
+  </div>
+
     <div class="field">
     <%= f.label :artist_ids, "Artists" %><br />
     <%= f.collection_select :artist_ids, Artist.order(:name), :id, :name, {}, {multiple: true} %>
