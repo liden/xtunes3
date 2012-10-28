@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag(@album.cover_file, :size => "125x125") %>
+  <%= image_tag(@album.cover_file_url.to_s, :size => "125x125", :class => "img-rounded") %>
 </p>
 
 <p>
