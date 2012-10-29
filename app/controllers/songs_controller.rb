@@ -8,7 +8,7 @@ class SongsController < ApplicationController
         current_user.save
       end
     end
-      redirect_to songs_path, notice: 'thank you'
+      redirect_to songs_path, notice: "\"#{song.name}\" was added to your collection."
   end
 
   def index
