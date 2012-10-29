@@ -15,10 +15,12 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation
+  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation, :song_ids
 
-  has_many :purchases
-  has_many :songs, :through => :purchases
+  has_and_belongs_to_many :songs
+
+  # has_many :purchases
+  # has_many :songs, :through => :purchases
 
   validates :name, :email, :presence => true
   validates :email, :uniqueness => true

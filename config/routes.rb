@@ -10,12 +10,16 @@ Xtunes3::Application.routes.draw do
   match '/logout' => 'sessions#destroy'
 
   resources :posts
-  resources :songs
+
   resources :artists
   resources :albums
   resources :genres
   resources :users
   resources :purchases
+
+  resources :songs do
+    get 'buy', :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

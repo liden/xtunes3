@@ -1,4 +1,16 @@
 class SongsController < ApplicationController
+
+  def buy
+    if current_user
+      song = Song.find(params[:id])
+          if (!current_user.songs.include?(song))
+          current_user.songs << song
+        current_user.save
+      end
+    end
+      redirect_to songs_path, notice: 'thank you'
+  end
+
   def index
     @songs = Song.all
   end

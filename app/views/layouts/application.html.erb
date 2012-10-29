@@ -20,7 +20,7 @@
             <li><%= link_to "home", home_path %></li>
             <li><%= link_to "songs", songs_path %></li>
               <% if current_user %>
-                <li><%= link_to "hello #{current_user.name}", songs_path %></li>
+                <li><%= link_to "hello #{current_user.name}", user_path(current_user) %></li>
                 <li><%= link_to "edit profile", edit_user_path(current_user) %></li>
                 <li><%= link_to "goodbye", logout_path %></li>
               <% else %>

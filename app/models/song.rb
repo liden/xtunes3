@@ -11,14 +11,16 @@
 #
 
 class Song < ActiveRecord::Base
-  attr_accessible :name, :price, :audiofile, :remote_audiofile_url, :album_ids, :genre_ids, :artist_ids
+  attr_accessible :name, :price, :audiofile, :remote_audiofile_url, :album_ids, :genre_ids, :artist_ids, :user_ids
 
   has_and_belongs_to_many :albums
   has_and_belongs_to_many :artists
   has_and_belongs_to_many :genres
+  has_and_belongs_to_many :users
 
-  has_many :purchases
-  has_many :users, :through => :purchases
+
+  # has_many :purchases
+  # has_many :users, :through => :purchases
 
   mount_uploader :audiofile, AudiofileUploader
 
