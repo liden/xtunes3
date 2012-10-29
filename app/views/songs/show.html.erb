@@ -31,5 +31,6 @@
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+  <%= link_to 'Back to all songs', songs_path %> |
+  <%= link_to 'Edit this song', edit_song_path(@song) %> |
+  <%= link_to 'Delete this song', @song, method: :delete, data: { confirm: 'Are you sure?' } %>
