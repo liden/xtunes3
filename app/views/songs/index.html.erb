@@ -11,6 +11,8 @@
     <th>Details</th>
     <th>Edit</th>
     <th>Destroy</th>
+    <th>Purchase</th>
+    <th>Play</th>
   </tr>
 
 <% @songs.each do |song| %>
@@ -37,7 +39,10 @@
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td> <%= link_to('buy', buy_song_path(song), :class => 'btn btn-primary btn-small') if (current_user) && (!current_user.songs.include?(song)) %></td>
+
+    <td> <%= link_to('buy', buy_song_path(song), :class => 'btn btn-primary btn-small') if (current_user) && (!current_user.songs.include?(song)) %> </td>
+
+    <td> <%= audio_tag(song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(song)) %></td>
 
   </tr>
 <% end %>
