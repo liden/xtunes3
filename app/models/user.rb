@@ -16,7 +16,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation, :song_ids
+  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation, :admin, :song_ids
 
   has_and_belongs_to_many :songs
 

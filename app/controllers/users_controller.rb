@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-  # before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize, only: [:index, :destroy]
 
   def index
-    @users = User.all
+    if current_user && current_user.admin
+      @users = User.order(:name)
+    else
+      redirect_to login_path
+    end
   end
 
   def show
