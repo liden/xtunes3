@@ -9,6 +9,10 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  admin           :boolean          default(FALSE)
+#  age             :integer
+#  gender          :string(255)
+#  avatar_file     :string(255)
+#  auth_token      :string(255)
 #
 
 require 'test_helper'

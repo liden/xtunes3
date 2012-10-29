@@ -12,6 +12,7 @@
 #  age             :integer
 #  gender          :string(255)
 #  avatar_file     :string(255)
+#  auth_token      :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -26,5 +27,13 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true
 
   has_secure_password
+  validates_presence_of :password, :on => :create
+  before_create { generate_token(:auth_token) }
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
 
 end

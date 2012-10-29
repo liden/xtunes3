@@ -7,6 +7,7 @@
 #  release_year :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  cover_file   :string(255)
 #
 
 require 'test_helper'
