@@ -26,9 +26,9 @@
             <div class="pull-right">
               <ul class="nav">
               <% if current_user %>
-                <li><%= link_to "hello #{current_user.name}", user_path(current_user) %></li>
+                <li><%= link_to "#{current_user.name}", user_path(current_user) %></li>
                 <li><%= link_to "edit profile", edit_user_path(current_user) %></li>
-                <li><%= link_to "goodbye", logout_path %></li>
+                <li><%= link_to "log out", logout_path %></li>
               <% else %>
                 <li><%= link_to "sign up", signup_path %></li>
                 <li><%= link_to "log in", login_path %></li>
