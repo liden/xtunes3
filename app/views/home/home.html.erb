@@ -1,34 +1,15 @@
 <h1>hello.</h1>
 <h3>welcome to xtunes</h3>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Artists</th>
-    <th>Album</th>
-    <th>Price</th>
-    <th></th>
-  </tr>
-
-  <% @songs.each do |song| %>
-  <tr>
-    <td><%= song.name %></td>
-
-    <td>
-      <% song.artists.each do |art|%>
-        <%= art.name %>
-      <% end %></td>
-
-    <td>
-      <% song.albums.each do |alb|%>
-        <%= alb.name %>
-      <% end %></td>
-
-    <td><%= number_to_currency(song.price) %></td>
-
-    <td><%= link_to 'Purchase', new_purchase_path(song) %></td>
-  </tr>
-<% end %>
-
-
-</table>
+<div class="span3">
+  <ul class="thumbnails">
+    <li class="span3">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200" alt="">
+        <h5>Thumbnail label</h5>
+        <p>Thumbnail caption...</p>
+      </div>
+    </li>
+    ...
+  </ul>
+</div>

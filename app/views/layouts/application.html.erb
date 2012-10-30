@@ -19,6 +19,12 @@
           <ul class="nav">
             <li><%= link_to "home", home_path %></li>
             <li><%= link_to "songs", songs_path %></li>
+            <li><%= link_to "by artist", artists_path %></li>
+            <li><%= link_to "by album", albums_path %></li>
+            <li><%= link_to "by genre", genres_path %></li>
+          </ul>
+            <div class="pull-right">
+              <ul class="nav">
               <% if current_user %>
                 <li><%= link_to "hello #{current_user.name}", user_path(current_user) %></li>
                 <li><%= link_to "edit profile", edit_user_path(current_user) %></li>
@@ -27,6 +33,8 @@
                 <li><%= link_to "sign up", signup_path %></li>
                 <li><%= link_to "log in", login_path %></li>
               <% end %>
+              </ul>
+            </div>
           </ul>
         </div>
         </div>

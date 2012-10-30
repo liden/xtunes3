@@ -16,7 +16,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :age, :gender, :avatar_file, :password, :password_confirmation, :admin, :song_ids
+  attr_accessible :email, :name, :age, :gender, :avatar_file, :remote_avatar_file_url, :password, :password_confirmation, :admin, :song_ids
 
   has_and_belongs_to_many :songs
 
@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :presence => true
   validates :email, :uniqueness => true
+
+  mount_uploader :avatar_file, PixfileUploader
 
   has_secure_password
   validates_presence_of :password, :on => :create
