@@ -44,8 +44,13 @@
   </div>
 
   <div class="field">
-    <%= f.label 'avatar' %><br />
-    <%= f.file_field 'avatar' %>
+    <%= f.label 'avatar_file' %><br />
+    <%= f.file_field 'avatar_file' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remote_avatar_file_url, 'or add image URL' %><br />
+    <%= f.text_field :remote_avatar_file_url %>
   </div>
 
   <% end %>
