@@ -1,24 +1,21 @@
 Xtunes3::Application.routes.draw do
 
   match '/home' => 'home#home'
-
-  match '/signup' => 'users#new', :via => :get
-
   match '/login' => 'sessions#new', :via => :get
   match '/login' => 'sessions#create', :via => :post
-
   match '/logout' => 'sessions#destroy'
+  match '/signup' => 'users#new', :via => :get
 
-  resources :posts
-
-  resources :artists
   resources :albums
+  resources :artists
   resources :genres
-  resources :users
+  resources :posts
   resources :purchases
+  resources :users
 
   resources :songs do
     get 'buy', :on => :member
+    get 'fave', :on => :member
   end
 
   # The priority is based upon order of creation:
