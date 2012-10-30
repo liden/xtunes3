@@ -2,22 +2,21 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>DOB</th>
     <th>Bio</th>
-    <th>Photo</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @artists.each do |artist| %>
   <tr>
-    <td><%= artist.name %></td>
+    <td><%= artist.photo %></td>
+    <td><%= link_to artist.name, artist %></td>
     <td><%= artist.dob %></td>
     <td><%= artist.bio %></td>
-    <td><%= artist.photo %></td>
-    <td><%= link_to 'Show', artist %></td>
+
     <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
     <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
