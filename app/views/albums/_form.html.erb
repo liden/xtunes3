@@ -6,8 +6,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :release_year %><br />
-    <%= f.text_field :release_year %>
+    <%= f.label :release %><br />
+    <%= f.date_select :release, { :start_year => 1910, :end_year => 2012 } %>
   </div>
 
   <div class="field">

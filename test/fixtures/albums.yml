@@ -2,12 +2,12 @@
 #
 # Table name: albums
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  release_year :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  cover_file   :string(255)
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  cover_file :string(255)
+#  release    :date
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

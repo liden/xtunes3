@@ -6,8 +6,9 @@
   </div>
   <div class="field">
     <%= f.label :dob %><br />
-    <%= f.text_field :dob %>
+    <%= f.date_select :dob, { :start_year => 1800, :end_year => 2012} %>
   </div>
+
   <div class="field">
     <%= f.label :bio %><br />
     <%= f.text_area :bio %>
