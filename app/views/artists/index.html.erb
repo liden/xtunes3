@@ -3,22 +3,22 @@
 <table>
   <tr>
     <th></th>
-    <th>Name</th>
-    <th>DOB</th>
-    <th>Bio</th>
-    <th></th>
-    <th></th>
+    <th>Artist</th>
+    <th>Song</th>
+    <th>Album</th>
   </tr>
 
 <% @artists.each do |artist| %>
   <tr>
     <td><%= artist.photo %></td>
     <td><%= link_to artist.name, artist %></td>
-    <td><%= artist.dob %></td>
-    <td><%= artist.bio %></td>
 
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><ul><% artist.songs.each do |song| %>
+        <li><%= link_to song.name, song %></li>
+        <% end %></ul>
+    </td>
+
+
   </tr>
 <% end %>
 </table>
