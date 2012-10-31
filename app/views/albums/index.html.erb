@@ -1,33 +1,55 @@
-<h1>Albums Listing</h1>
+  <div class="pull-right">
+    <small>
+    <%= link_to 'Add an album', new_album_path %> </small>
+  </div>
 
-<table>
-  <tr>
-    <th>Cover</th>
-    <th>Name</th>
-    <th>Release</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <h4>xTunes Albums</h4>
+
+  <div class="row-fluid">
+  <div class="span12">
+
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Release</th>
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Song</th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @albums.each do |album| %>
   <tr>
-    <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "50x50", :class => "img-rounded")), album %></td>
-    <td><%= link_to album.name, album %></td>
-    <td><%= album.release %></td>
 
-    <td><ul><% album.songs.each do |song| %>
-      <li><%= link_to song.name, song %></li>
-      <% end %></ul>
+    <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "75x75", :class => "img-polaroid")), album %></td>
+
+    <td><%= link_to album.name, album %></td>
+
+    <td><%= album.release.to_formatted_s(:long) %></td>
+
+    <td>
+      <% album.artists.uniq.each do |artist| %>
+        <%= link_to artist.name, artist %></br>
+      <% end %>
     </td>
 
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><% album.genres.uniq.each do |genre| %>
+        <%= link_to genre.name, genre %></br>
+      <% end %></td>
+
+    <td>
+      <% album.songs.each do |song| %>
+      <%= link_to song.name, song %></br>
+      <% end %>
+    </td>
+
+    <td><small><%= link_to 'Details', album %> | <%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %></small></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Album', new_album_path %>
+  </div>
+  </div>
