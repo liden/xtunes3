@@ -14,7 +14,10 @@ class Album < ActiveRecord::Base
   attr_accessible :name, :release, :cover_file, :remote_cover_file_url, :song_ids
   has_and_belongs_to_many :songs
 
+  validates :name, :presence => true
+
   has_many :artists, :through => :songs
+  has_many :genres, :through => :songs
 
   mount_uploader :cover_file, PixfileUploader
 
