@@ -6,11 +6,11 @@ gem 'bcrypt-ruby'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'annotate'
+gem 'thin'
 
 group :development, :test do
   gem 'pg'
   gem 'foreman'
-  gem 'thin'
 end
 
 group :assets do
