@@ -12,7 +12,7 @@
   <div class="row-fluid">
     <div class="span3">
 
-      <%= image_tag(@album.cover_file_url.to_s, :size => "175x175", :class => "img-polaroid") %>
+      <%= image_tag(@album.cover_file_url.to_s ||= "/assets/album_cover_default.png", :size => "175x175", :class => "img-polaroid") %>
 
       <dl class="dl">
       <dt><small>RELEASE</small></dt>
