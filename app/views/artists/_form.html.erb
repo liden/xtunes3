@@ -1,20 +1,15 @@
-<%= form_for(@artist) do |f| %>
+<%= simple_form_for @artist, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br />
-    <%= f.date_select :dob, { :start_year => 1800, :end_year => 2012} %>
-  </div>
+  <fieldset>
 
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio, { :rows => 10 } %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.input :name %>
+    <%= f.input :dob %>
+    <%= f.input :bio %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'cancel', artists_path, :class => 'btn' %>
   </div>
 
+  </fieldset>
 <% end %>
