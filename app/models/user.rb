@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   # has_many :purchases
   # has_many :songs, :through => :purchases
 
-  validates :name, :email, :presence => true
+  validates :name, :email, :gender, :age, :presence => true
   validates :email, :uniqueness => true
 
   mount_uploader :avatar_file, PixfileUploader

@@ -21,12 +21,12 @@
       <% @albums.each do |album| %>
       <tr>
 
-        <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "75x75", :class => "img-polaroid")), album %></td>
+        <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "100x100")), album %></td>
 
         <td>
           <strong><%= link_to album.name, album %></strong></br>
           <dl class="dl">
-            <dt><small>RELEASE</small></dt> <dd><%= album.release.to_formatted_s(:long) %></dd>
+            <dt><small>RELEASE</small></dt> <dd><%= album.release.year %></dd>
           <dt><small>GENRE</small></dt> <% album.genres.uniq.each do |genre| %>
             <dd><%= link_to genre.name, genre %></dd>
           <% end %>

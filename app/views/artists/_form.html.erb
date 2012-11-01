@@ -4,8 +4,8 @@
 
   <%= f.input :name %>
   <%= f.input :dob, label: 'Date of Birth',
-    :as => :date, :start_year => Date.today.year - 200,
-    :end_year => Date.today.year - 12, :discard_day => false,
+    :as => :date, :start_year => 1800,
+    :end_year => Date.today.year - 10,
     :order => [:day, :month, :year] %>
   <%= f.input :bio %>
 
