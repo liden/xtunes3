@@ -11,10 +11,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>Title</th>
-          <th>Release</th>
+          <th>Album</th>
           <th>Artist</th>
-          <th>Genre</th>
           <th>Song</th>
           <th></th>
         </tr>
@@ -25,19 +23,21 @@
 
         <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "75x75", :class => "img-polaroid")), album %></td>
 
-        <td><%= link_to album.name, album %></td>
-
-        <td><%= album.release.to_formatted_s(:long) %></td>
+        <td>
+          <strong><%= link_to album.name, album %></strong></br>
+          <dl class="dl">
+            <dt><small>RELEASE</small></dt> <dd><%= album.release.to_formatted_s(:long) %></dd>
+          <dt><small>GENRE</small></dt> <% album.genres.uniq.each do |genre| %>
+            <dd><%= link_to genre.name, genre %></dd>
+          <% end %>
+          </dl>
+        </td>
 
         <td>
           <% album.artists.uniq.each do |artist| %>
             <%= link_to artist.name, artist %></br>
           <% end %>
         </td>
-
-        <td><% album.genres.uniq.each do |genre| %>
-            <%= link_to genre.name, genre %></br>
-          <% end %></td>
 
         <td>
           <% album.songs.each do |song| %>
