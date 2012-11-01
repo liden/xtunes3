@@ -1,48 +1,64 @@
-<h1>Songs Listing</h1>
+<div class="pull-right">
+  <small><%= link_to 'Add a song', new_song_path %> </small>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
+<div>
+  <h4>xTunes Songs</h4>
 
-    <th>Artists</th>
-    <th>Albums</th>
-    <th>Genres</th>
-    <th>Price</th>
-    <th>Purchase</th>
-    <th>Play</th>
-  </tr>
+  <div class="row-fluid" "span12">
 
-<% @songs.each do |song| %>
-  <tr>
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Genre</th>
+          <th>Buy</th>
+          <th>Play</th>
+          <th></th>
+        </tr>
+      </thead>
 
-    <td><%= link_to song.name, song %></td>
+      <% @songs.each do |song| %>
+      <tr>
 
-    <td>
-      <% song.artists.each do |art|%>
-        <%= art.name %>
+        <td><%= link_to song.name, song %></td>
+
+        <td>
+          <% song.artists.each do |artist|%>
+            <%= link_to artist.name, artist %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <% song.albums.each do |album| %>
+            <%= link_to album.name, album %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <% song.genres.each do |genre|%>
+            <%= link_to genre.name, genre %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <%= number_to_currency(song.price) %>
+          <%= link_to('buy', buy_song_path(song), :class => 'btn btn-primary btn-small') if (current_user) && (!current_user.songs.include?(song)) %>
+        </td>
+
+        <td> <%= audio_tag(song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(song)) %>
+        </td>
+
+        <td><small>
+          <%= link_to 'Details', song %> |
+          <%= link_to 'Edit', edit_song_path(song) %> |
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small></td>
+      </tr>
       <% end %>
-    </td>
-    <td>
-      <% song.albums.each do |alb|%>
-        <%= alb.name %>
-      <% end %>
-    </td>
-    <td>
-    <% song.genres.each do |gen|%>
-        <%= gen.name %>
-      <% end %>
-    </td>
+    </table>
 
-    <td><%= number_to_currency(song.price) %></td>
-
-    <td> <%= link_to('buy', buy_song_path(song), :class => 'btn btn-primary btn-small') if (current_user) && (!current_user.songs.include?(song)) %> </td>
-
-    <td> <%= audio_tag(song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(song)) %></td>
-
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Song', new_song_path %>
+  </div>
+</div>

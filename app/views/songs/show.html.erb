@@ -1,36 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @song.name %>
-</p>
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_song_path(@song) %> |
+    <%= link_to 'Delete', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', songs_path %>
+  </div>
 
-<p>
-  <b>Price:</b>
-  <%= number_to_currency(@song.price) %>
-</p>
+  <h4><%= @song.name %></h4>
 
-<p>
-  <b>Artists:</b>
-    <% @song.artists.each do |art|%>
-      <%= art.name %>
-    <% end %>
-</p>
+<div class="span12" "row-fluid">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-<p>
-  <b>Albums:</b>
-    <% @song.albums.each do |alb|%>
-      <%= alb.name %>
-    <% end %>
-</p>
+        <tbody>
+            <tr>
 
-<p>
-  <b>Genres:</b>
-    <% @song.genres.each do |gen|%>
-      <%= gen.name %>
-    <% end %>
-</p>
+              <td>
+                <% @song.artists.each do |artist|%>
+                  <%= link_to artist.name, artist %><br />
+                <% end %>
+              </td>
 
-  <%= link_to 'Back to all songs', songs_path %> |
-  <%= link_to 'Edit this song', edit_song_path(@song) %> |
-  <%= link_to 'Delete this song', @song, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <td>
+                <% @song.albums.each do |album| %>
+                  <%= link_to album.name, album %><br />
+                <% end %>
+              </td>
+
+              <td><% @song.genres.each do |genre| %>
+                  <%= link_to genre.name, genre %><br />
+                <% end %>
+              </td>
+
+              <td> </td>
+
+              <td><%= number_to_currency(@song.price) %></td>
+
+              <td>
+                <%= audio_tag(@song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(@song)) %>
+              </td>
+
+              <td><% %></td>
+
+            </tr>
+        </tbody>
+      </table>
+
+</div>
