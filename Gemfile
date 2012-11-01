@@ -11,7 +11,6 @@ gem 'thin'
 group :development, :test do
   gem 'pg'
   gem 'foreman'
-  gem 'thin'
 end
 
 group :assets do
@@ -25,5 +24,4 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
