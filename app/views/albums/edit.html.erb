@@ -1,6 +1,10 @@
-<h1>Edit Album</h1>
+<div class="pull-right">
+  <small>
+    <%= link_to 'Back', albums_path %> |
+    <%= link_to 'Show', @album %>
+  </small>
+</div>
+
+<h4>Edit an Album</h4>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @album %> |
-<%= link_to 'Back', albums_path %>
