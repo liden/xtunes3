@@ -1,41 +1,17 @@
-<%= form_for(@song) do |f| %>
+<%= simple_form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <%= f.error_notification %>
 
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :audiofile, label: 'Upload Audio File' %>
+    <%= f.input :remote_audiofile_url, label: 'Audio File Link' %>
+    <%= f.association :artists %>
+    <%= f.association :albums %>
+    <%= f.association :genres %>
 
-  <div class="field">
-    <%= f.label :audiofile %><br />
-    <%= f.file_field :audiofile %>
-  </div>
+    <%= f.error :base %>
 
-  <div class="field">
-    <%= f.label :remote_audiofile_url, 'or add audio file URL' %><br />
-    <%= f.text_field :remote_audiofile_url %>
-  </div>
+    <%= f.button :submit %>
 
-    <div class="field">
-    <%= f.label :artist_ids, "Artists" %><br />
-    <%= f.collection_select :artist_ids, Artist.order(:name), :id, :name, {}, {multiple: true} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :album_ids, "Albums" %><br />
-    <%= f.collection_select :album_ids, Album.order(:name), :id, :name, {}, {multiple: true} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :genre_ids, "Genres" %><br />
-    <%= f.collection_select :genre_ids, Genre.order(:name), :id, :name, {}, {multiple: true} %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

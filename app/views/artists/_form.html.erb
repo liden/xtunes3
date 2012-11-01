@@ -1,15 +1,18 @@
 <%= simple_form_for @artist, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <fieldset>
+    <%= f.error_notification %>
 
     <%= f.input :name %>
-    <%= f.input :dob %>
+    <%= f.input :dob, label: 'Date of Birth',
+      :as => :date, :start_year => Date.today.year - 200,
+      :end_year => Date.today.year - 12, :discard_day => false,
+      :order => [:month, :day, :year] %>
     <%= f.input :bio %>
 
+    <%= f.button :submit %>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to 'cancel', artists_path, :class => 'btn' %>
   </div>
 
-  </fieldset>
 <% end %>
