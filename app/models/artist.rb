@@ -14,6 +14,7 @@
 class Artist < ActiveRecord::Base
   attr_accessible :bio, :dob, :name, :photo
   has_and_belongs_to_many :songs
+  validates :name, :dob, :presence => :true
 
   has_many :albums, :through => :songs
 

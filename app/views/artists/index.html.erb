@@ -1,28 +1,57 @@
-<h1>Artists Listing</h1>
+<div class="pull-right">
+  <small><%= link_to 'Add an artist', new_artist_path %> </small>
+</div>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Artist</th>
-    <th>Song</th>
-    <th>Album</th>
-  </tr>
+<div>
+  <h4>xTunes Artists</h4>
 
-<% @artists.each do |artist| %>
-  <tr>
-    <td><%= artist.photo %></td>
-    <td><%= link_to artist.name, artist %></td>
+  <div class="row-fluid" "span12">
 
-    <td><ul><% artist.songs.each do |song| %>
-        <li><%= link_to song.name, song %></li>
-        <% end %></ul>
-    </td>
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Artist</th>
+          <th>Song</th>
+          <th>Album</th>
+          <th></th>
+        </tr>
+      </thead>
 
+      <% @artists.each do |artist| %>
+      <tr>
 
-  </tr>
-<% end %>
-</table>
+        <td><%= link_to (image_tag(artist.photo.to_s, :size => "75x75", :class => "img-polaroid")), artist %></td>
 
-<br />
+        <td>
+          <strong><%= link_to artist.name, artist %></strong></br>
+          <dl class="dl">
+            <dt><small>BORN</small></dt> <dd><%= artist.dob.to_formatted_s(:long) %></dd>
+          <dt><small>MISC</small></dt>
+            <dd></dd>
+          </dl>
+        </td>
 
-<%= link_to 'New Artist', new_artist_path %>
+        <td>
+          <% artist.songs.each do |song| %>
+            <%= link_to song.name, song %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <% artist.albums.each do |song| %>
+            <%= link_to song.name, song %></br>
+          <% end %>
+        </td>
+
+        <td><small>
+          <%= link_to 'Details', artist %> |
+          <%= link_to 'Edit', edit_artist_path(artist) %> |
+          <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small></td>
+      </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>

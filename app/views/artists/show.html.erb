@@ -6,17 +6,63 @@
     <%= link_to 'Back', artists_path %>
   </div>
 
-<p>
-  <%= @artist.photo %>
-</p>
+  <h4><%= @artist.name %></h4>
 
-<p>
-  <b><%= @artist.name %></b>
-</p>
 
-<p><%= @artist.dob %></p>
+  <div class="row-fluid">
+    <div class="span3">
 
-<p>
-  <%= @artist.bio %>
-</p>
+      <%= image_tag(@artist.photo.to_s, :size => "175x175", :class => "img-polaroid") %>
 
+      <dl class="dl">
+        <dt><small>BORN</small></dt>
+        <dd><small><%= @artist.dob.to_formatted_s(:long) %></small></dd>
+        </dl>
+
+    </div>
+
+    <div class="span9">
+    <h6>BIO</h6>
+    <%= @artist.bio %>
+
+
+    <h6>ALBUMS</h6>
+
+    <h6>SONGS</h6>
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Time</th>
+            <th>Buy</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @artist.songs.each do |song|%>
+            <tr>
+              <td><%= link_to song.name, song %></td>
+
+              <td>
+                <% song.albums.each do |album| %>
+                  <%= link_to album.name, album %>
+                <% end %>
+              </td>
+
+              <td><% song.genres.each do |genre| %>
+                  <%= link_to genre.name, genre %>
+                <% end %>
+              </td>
+
+              <td><%= number_to_currency(song.price) %></td>
+
+              <td><% %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
