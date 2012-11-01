@@ -1,10 +1,13 @@
-<%= form_for(@genre) do |f| %>
+<%= simple_form_for @genre, :html => { :class => 'form-inline' } do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.error_notification %>
+
+  <%= f.input_field :name %>
+  <%= f.hint 'Genres are defined by ID3. Please see http://www.id3.org before adding or updating genres.' %>
+
+  <br />
+
+  <%= f.submit :class => 'btn btn-warning' %>
+  <%= link_to 'cancel', genres_path, :class => 'btn' %>
+
 <% end %>

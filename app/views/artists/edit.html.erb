@@ -1,6 +1,8 @@
-<h1>Edit Artist</h1>
+<div class="pull-right">
+  <small>
+    <%= link_to 'view this artist', @artist %> |
+    <%= link_to 'view all artists', artists_path %>
+  </small>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+<h4>Update an Artist</h4>

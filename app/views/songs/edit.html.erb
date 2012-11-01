@@ -1,6 +1,10 @@
-<h1>Edit Song</h1>
+<div class="pull-right">
+  <small>
+    <%= link_to 'view this song', @song %> |
+    <%= link_to 'view all songs', songs_path %>
+  </small>
+</div>
+
+<h4>Update a Song</h4>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>

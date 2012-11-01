@@ -1,10 +1,10 @@
 <div class="pull-right">
   <small>
-    <%= link_to 'Back', albums_path %> |
-    <%= link_to 'Show', @album %>
+    <%= link_to 'view this album', @album %> |
+    <%= link_to 'view all albums', albums_path %>
   </small>
 </div>
 
-<h4>Edit an Album</h4>
+<h4>Update an Album</h4>
 
 <%= render 'form' %>

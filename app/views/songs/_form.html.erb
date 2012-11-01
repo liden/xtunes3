@@ -1,17 +1,20 @@
 <%= simple_form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
 
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :audiofile, label: 'Upload Audio File' %>
-    <%= f.input :remote_audiofile_url, label: 'Audio File Link' %>
-    <%= f.association :artists %>
-    <%= f.association :albums %>
-    <%= f.association :genres %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :audiofile, label: 'Upload Audio File' %>
+  <%= f.input :remote_audiofile_url, label: 'Audio File Link' %>
+  <%= f.association :artists %>
+  <%= f.association :albums %>
+  <%= f.association :genres %>
 
-    <%= f.error :base %>
+  <%= f.error :base %>
 
-    <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-info' %>
+    <%= link_to 'cancel', songs_path, :class => 'btn' %>
+  </div>
 
 <% end %>
