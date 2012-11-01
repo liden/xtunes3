@@ -1,10 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @genre.name %>
-</p>
+  <div class="pull-right">
+    <small><%= link_to 'Edit', edit_genre_path(@genre) %> |
+    <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', genres_path %> </small>
+  </div>
 
+  <h4><%= @genre.name %></h4>
 
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
+  <div class="row-fluid">
+    <div class="span3">
+
+      <p>lorem ipsum description of genre?</p>
+
+    </div>
+
+    <div class="span9">
+    <h6>SONGS</h6>
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Time</th>
+            <th>Buy</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @genre.songs.each do |song|%>
+            <tr>
+              <td><%= link_to song.name, song %></td>
+
+              <td>
+                <% song.artists.each do |artist| %>
+                  <%= link_to artist.name, artist %>
+                <% end %>
+              </td>
+
+              <td><% song.albums.each do |album| %>
+                  <%= link_to album.name, album %>
+                <% end %>
+              </td>
+
+              <td><%= number_to_currency(song.price) %></td>
+
+              <td><% %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>

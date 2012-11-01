@@ -3,9 +3,9 @@ class GenresController < ApplicationController
     @genres = Genre.order(:name)
   end
 
-  # def show
-  #   @genre = Genre.find(params[:id])
-  # end
+  def show
+    @genre = Genre.find(params[:id])
+  end
 
   def new
     @genre = Genre.new

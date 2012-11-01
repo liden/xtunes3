@@ -1,55 +1,58 @@
-  <div class="pull-right">
-    <small>
-    <%= link_to 'Add an album', new_album_path %> </small>
-  </div>
+<div class="pull-right">
+  <small><%= link_to 'Add an album', new_album_path %> </small>
+</div>
 
+<div>
   <h4>xTunes Albums</h4>
 
-  <div class="row-fluid">
-  <div class="span12">
+  <div class="row-fluid" "span12">
 
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Release</th>
-      <th>Artist</th>
-      <th>Genre</th>
-      <th>Song</th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Release</th>
+          <th>Artist</th>
+          <th>Genre</th>
+          <th>Song</th>
+          <th></th>
+        </tr>
+      </thead>
 
-<% @albums.each do |album| %>
-  <tr>
+      <% @albums.each do |album| %>
+      <tr>
 
-    <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "75x75", :class => "img-polaroid")), album %></td>
+        <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "75x75", :class => "img-polaroid")), album %></td>
 
-    <td><%= link_to album.name, album %></td>
+        <td><%= link_to album.name, album %></td>
 
-    <td><%= album.release.to_formatted_s(:long) %></td>
+        <td><%= album.release.to_formatted_s(:long) %></td>
 
-    <td>
-      <% album.artists.uniq.each do |artist| %>
-        <%= link_to artist.name, artist %></br>
+        <td>
+          <% album.artists.uniq.each do |artist| %>
+            <%= link_to artist.name, artist %></br>
+          <% end %>
+        </td>
+
+        <td><% album.genres.uniq.each do |genre| %>
+            <%= link_to genre.name, genre %></br>
+          <% end %></td>
+
+        <td>
+          <% album.songs.each do |song| %>
+            <%= link_to song.name, song %></br>
+          <% end %>
+        </td>
+
+        <td><small>
+          <%= link_to 'Details', album %> |
+          <%= link_to 'Edit', edit_album_path(album) %> |
+          <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small></td>
+      </tr>
       <% end %>
-    </td>
-
-    <td><% album.genres.uniq.each do |genre| %>
-        <%= link_to genre.name, genre %></br>
-      <% end %></td>
-
-    <td>
-      <% album.songs.each do |song| %>
-      <%= link_to song.name, song %></br>
-      <% end %>
-    </td>
-
-    <td><small><%= link_to 'Details', album %> | <%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %></small></td>
-  </tr>
-<% end %>
-</table>
+    </table>
 
   </div>
-  </div>
+</div>
