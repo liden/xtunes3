@@ -15,29 +15,18 @@
 
   <% else %>
 
-  <%= f.input :gender, :collection => [:male, :female] %>
-  <%= f.input :age, :collection => 18..110 %>
-
-
-  <div class="field">
-    <%= f.label 'age' %><br />
-    <%= f.number_field 'age' %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'avatar_file' %><br />
-    <%= f.file_field 'avatar_file' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :remote_avatar_file_url, 'or add image URL' %><br />
-    <%= f.text_field :remote_avatar_file_url %>
-  </div>
+    <%= f.input :gender, :collection => [:male, :female] %>
+    <%= f.input :age, :collection => 18..110 %>
+    <%= f.input :avatar_file, label: 'Upload Avatar' %>
+    <%= f.input :remote_avatar_file_url, label: 'Avatar Link' %>
 
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.error :base %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-info' %>
+    <%= link_to 'cancel', home_path, :class => 'btn' %>
   </div>
 
 <% end %>
