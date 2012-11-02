@@ -1,22 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div class="pull-right">
+  <small>
+    <% if admin_user %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %>
+      <%= link_to 'View all users', users_path %>
+  </small>
+</div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
 
-<p>
-  <b>Age:</b>
-  <%= @user.age %>
-</p>
+<h4><%= @user.name %></h4>
 
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
-</p>
-</p>
+  <div class="row-fluid">
+    <div class="span3">
+
+        <%= image_tag(@user.avatar_file_url.to_s, :size => "175x175", :class => "img-polaroid") %>
+
+    </div>
+
+    <div class="span9">
+    <h6>USER INFO</h6>
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= @user.name %></td>
+            <td><%= @user.email %></td>
+            <td><%= @user.age %></td>
+            <td><%= @user.gender %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

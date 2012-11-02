@@ -26,14 +26,16 @@
       <% end %>
 
       <dl class="dl">
-      <dt><small>RELEASE</small></dt>
-      <dd><small><%= @album.release.to_formatted_s(:long) %></small></dd>
-      <dt><small>GENRE</small></dt>
-      <dd><small>
-        <% @album.genres.uniq.each do |genre| %>
-          <%= link_to genre.name, genre %></br>
-        <% end %>
-      </small></dd>
+
+        <dt><small>RELEASE</small></dt>
+        <dd><small><%= @album.release.year %></small></dd>
+
+          <dt><small>GENRE</small></dt>
+          <dd><small>
+            <% @album.genres.uniq.each do |genre| %>
+              <%= link_to genre.name, genre %></br>
+            <% end %>
+          </small></dd>
       </dl>
 
     </div>
@@ -77,4 +79,4 @@
         </tbody>
       </table>
     </div>
-</div>
+  </div>

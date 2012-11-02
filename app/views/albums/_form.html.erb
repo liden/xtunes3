@@ -5,8 +5,7 @@
   <%= f.input :name %>
   <%= f.input :release, label: 'Release Date',
     :as => :date, :start_year => 1910,
-    :end_year => Date.today.year,
-    :order => [:day, :month, :year] %>
+    :end_year => Date.today.year, :discard_day => true, :discard_month => true %>
   <%= f.input :cover_file, label: 'Upload Album Cover' %>
   <%= f.input :remote_cover_file_url, label: 'Album Cover Link' %>
 
