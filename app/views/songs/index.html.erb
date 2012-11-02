@@ -45,7 +45,7 @@
 
         <td>
           <%= number_to_currency(song.price) %>
-          <%= link_to('buy', buy_song_path(song), :class => 'btn btn-primary btn-small') if (current_user) && (!current_user.songs.include?(song)) %>
+          <%= link_to('buy', buy_song_path(song), :class => 'btn btn-info btn-mini') if (current_user) && (!current_user.songs.include?(song)) %>
         </td>
 
         <td> <%= audio_tag(song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(song)) %>
