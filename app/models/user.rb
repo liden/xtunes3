@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   # has_many :songs, :through => :purchases
 
   validates :name, :email, :gender, :age, :presence => true
-  validates :email, :uniqueness => true
+  validates :email, :name, :uniqueness => true
 
   mount_uploader :avatar_file, PixfileUploader
 

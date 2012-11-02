@@ -8,8 +8,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def authorize
-    redirect_to login_url, alert: 'Please login' if current_user.nil?
+  def admin_user
+    @admin_user ||= !current_user.nil? && current_user.admin
+  end
+  helper_method :admin_user
+
+  def not_authorized
+    redirect_to login_path, alert: 'Please login as an admin.' if !admin_user.nil?
   end
 
 end

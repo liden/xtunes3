@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authorize, only: [:index, :destroy]
+  before_filter :not_authorized, only: [:index, :destroy]
 
   def index
-    if current_user && current_user.admin
       @users = User.order(:name)
-    else
-      redirect_to login_path
-    end
   end
 
   def show
@@ -22,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path, notice: 'Hello! Welcome to xtunes!'
+      redirect_to home_path, notice: 'Hello! Welcome to xTunes!'
     else
       render :new
     end

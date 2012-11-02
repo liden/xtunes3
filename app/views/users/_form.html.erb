@@ -7,7 +7,7 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 
-  <% if !current_user.nil? && current_user.admin %>
+  <% if admin_user %>
     <div class="field">
       <%= f.label :admin %><br />
       <%= f.check_box :admin %><br />
