@@ -9,8 +9,7 @@
 
   <% if admin_user %>
     <div class="field">
-      <%= f.label :admin %><br />
-      <%= f.check_box :admin %><br />
+      <%= f.input :admin, :inline_label => 'Check here to allow admin privileges.' %><br />
   </div>
 
   <% else %>
