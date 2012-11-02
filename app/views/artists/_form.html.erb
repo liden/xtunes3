@@ -7,6 +7,8 @@
     :as => :date, :start_year => 1800,
     :end_year => Date.today.year - 10,
     :order => [:day, :month, :year] %>
+  <%= f.input :photo, label: 'Upload Artist Photo' %>
+  <%= f.input :remote_photo_url, label: 'Artist Photo Link' %>
   <%= f.input :bio %>
 
   <%= f.error :base %>
