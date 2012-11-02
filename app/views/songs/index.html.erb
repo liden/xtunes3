@@ -1,6 +1,8 @@
-<div class="pull-right">
-  <small><%= link_to 'Add a song', new_song_path %> </small>
-</div>
+<% if admin_user %>
+  <div class="pull-right">
+    <small><%= link_to 'Add a song', new_song_path %> </small>
+  </div>
+<% end %>
 
 <div>
   <h4>xTunes Songs</h4>
@@ -51,11 +53,13 @@
         <td> <%= audio_tag(song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(song)) %>
         </td>
 
-        <td><small>
-          <%= link_to 'Details', song %> |
-          <%= link_to 'Edit', edit_song_path(song) %> |
-          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </small></td>
+        <% if admin_user %>
+          <td><small>
+            <%= link_to 'Details', song %> |
+            <%= link_to 'Edit', edit_song_path(song) %> |
+            <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </small></td>
+        <% end %>
       </tr>
       <% end %>
     </table>
