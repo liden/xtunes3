@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
 
   def buy
     if current_user
@@ -21,7 +22,6 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    @artists = Artist.all
   end
 
   def create

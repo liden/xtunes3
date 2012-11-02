@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   helper_method :admin_user
 
   def not_authorized
-    redirect_to login_path, alert: 'Please login as an admin.' if !admin_user.nil?
+    if !admin_user
+      redirect_to login_path, alert: 'Please login as an admin.'
+    end
   end
 
 end
