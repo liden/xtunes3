@@ -8,11 +8,18 @@
 
   <h4><%= @album.name %></h4>
 
-
   <div class="row-fluid">
     <div class="span3">
 
-      <%= image_tag(@album.cover_file_url.to_s ||= "/assets/album_cover_default.png", :size => "175x175", :class => "img-polaroid") %>
+      <% if !@album_cover_file_url = nil %>
+
+        <%= image_tag(@album.cover_file_url.to_s, :size => "175x175", :class => "img-polaroid") %>
+
+      <% else %>
+
+          <%= image_tag("/assets/albumcover.png", :size => "175x175", :class => "img-polaroid") %>
+
+      <% end %>
 
       <dl class="dl">
       <dt><small>RELEASE</small></dt>
