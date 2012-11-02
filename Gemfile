@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'annotate'
 gem 'thin'
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'pg'
@@ -17,9 +19,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'carrierwave'
-  gem 'rmagick'
-  gem 'fog'
+  # gem 'rmagick'
 end
 
 group :production do
