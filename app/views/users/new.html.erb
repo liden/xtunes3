@@ -1,5 +1,9 @@
-<h1>New User</h1>
+<% if admin_user %>
+  <div class="pull-right">
+    <small><%= link_to 'view all users', users_path %> </small>
+  </div>
+<% end %>
+
+<h4>Create a User</h4>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', users_path %>

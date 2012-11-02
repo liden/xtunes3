@@ -1,6 +1,12 @@
-<h1>Edit your profile</h1>
+<% if admin_user %>
+  <div class="pull-right">
+    <small>
+      <%= link_to 'view this user', @user %> |
+      <%= link_to 'view all users', users_path %>
+    </small>
+  </div>
+<% end %>
+
+<h4>Update a User</h4>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
