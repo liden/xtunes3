@@ -15,10 +15,11 @@
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">xTunes</a>
+          <%= link_to "xTunes", home_path, :class => 'brand' %>
+
           <ul class="nav">
-            <li><%= link_to "home", home_path %></li>
-            <li><%= link_to "songs", songs_path %></li>
+            <li><%= link_to "browse music", songs_path %></li>
+            <li><%= link_to "by song", songs_path %></li>
             <li><%= link_to "by artist", artists_path %></li>
             <li><%= link_to "by album", albums_path %></li>
             <li><%= link_to "by genre", genres_path %></li>
@@ -26,10 +27,9 @@
             <div class="pull-right">
               <ul class="nav">
               <% if current_user %>
-                <li><%= link_to "#{current_user.name}", user_path(current_user) %></li>
-                <li><%= image_tag "/assets/avatar.png", :size => "39x39" %> </li>
-                <li><%= link_to "edit profile", edit_user_path(current_user) %></li>
+                <li><%= link_to "#{current_user.name}", edit_user_path(current_user) %></li>
                 <li><%= link_to "log out", logout_path %></li>
+                <li><%= image_tag current_user.avatar_file_url, :size => "39x39" %> </li>
               <% else %>
                 <li><%= link_to "sign up", signup_path %></li>
                 <li><%= link_to "log in", login_path %></li>

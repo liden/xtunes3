@@ -1,18 +1,18 @@
-<h3>Hello. Welcome to xTunes!</h3>
+<div class="row">
+  <div class="span1">
+  </div>
 
-<div class="span6">
-
-</div>
-
-<div class="span3">
-  <ul class="thumbnails">
-    <li class="span3">
-      <div class="thumbnail">
-        <!-- 3 random or latest songs -->
-        <img src="http://placehold.it/300x200" alt="">
-        <h5>Thumbnail label</h5>
-        <p>Thumbnail caption...</p>
-      </div>
-    </li>
-  </ul>
+    <div class="span10">
+      <div class="hero-unit">
+        <h2>Welcome to xTunes! <small>Music on the go.</small></h2>
+          <br/>
+          <p>With xTunes, your music is in the cloud, so you can listen to your songs everywhere, using any web-connected device.</p>
+          <p>Sign up or log in to add songs to your collection, play songs in your collection, and organize your songs into mixtape playlists.</p>
+          <br/>
+          <div class="pull-right">
+            <%= link_to "sign up", signup_path, :class => 'btn btn-info btn-large' %>
+            <%= link_to "log in", login_path, :class => 'btn btn-info btn-large' %>
+          </div>
+        </div>
+    </div>
 </div>
