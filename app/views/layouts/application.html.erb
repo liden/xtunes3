@@ -27,6 +27,7 @@
               <ul class="nav">
               <% if current_user %>
                 <li><%= link_to "#{current_user.name}", user_path(current_user) %></li>
+                <li><%= image_tag "/assets/avatar.png", :size => "39x39" %> </li>
                 <li><%= link_to "edit profile", edit_user_path(current_user) %></li>
                 <li><%= link_to "log out", logout_path %></li>
               <% else %>
