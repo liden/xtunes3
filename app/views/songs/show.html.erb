@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
   <div class="pull-right">
-    <% if admin_user %>
-      <%= link_to 'Edit', edit_song_path(@song) %> |
-      <%= link_to 'Delete', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
-    <% end %>
-      <%= link_to 'Show all songs', songs_path %>
+    <small>
+      <% if admin_user %>
+        <%= link_to 'Edit', edit_song_path(@song) %> |
+        <%= link_to 'Delete', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <% end %>
+        <%= link_to 'View all songs', songs_path %>
+    </small>
   </div>
 
 

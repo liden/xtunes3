@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
   <div class="pull-right">
-    <small><%= link_to 'Edit', edit_album_path(@album) %> |
-    <%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?' } %> |
-    <%= link_to 'Back', albums_path %> </small>
+    <small>
+      <% if admin_user %>
+        <%= link_to 'Edit', edit_album_path(@album) %> |
+        <%= link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <% end %>
+        <%= link_to 'View all albums', albums_path %>
+    </small>
   </div>
 
   <h4><%= @album.name %></h4>

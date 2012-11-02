@@ -1,6 +1,8 @@
-<div class="pull-right">
-  <small><%= link_to 'Add an artist', new_artist_path %> </small>
-</div>
+<% if admin_user %>
+  <div class="pull-right">
+    <small><%= link_to 'Add an artist', new_artist_path %> </small>
+  </div>
+<% end %>
 
 <div>
   <h4>xTunes Artists</h4>
@@ -44,11 +46,13 @@
           <% end %>
         </td>
 
-        <td><small>
-          <%= link_to 'Details', artist %> |
-          <%= link_to 'Edit', edit_artist_path(artist) %> |
-          <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </small></td>
+        <% if admin_user %>
+          <td><small>
+            <%= link_to 'Details', artist %> |
+            <%= link_to 'Edit', edit_artist_path(artist) %> |
+            <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </small></td>
+        <% end %>
       </tr>
       <% end %>
     </table>

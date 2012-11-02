@@ -1,6 +1,8 @@
-<div class="pull-right">
-  <small><%= link_to 'Add a genre', new_genre_path %> </small>
-</div>
+<% if admin_user %>
+  <div class="pull-right">
+    <small><%= link_to 'Add a genre', new_genre_path %> </small>
+  </div>
+<% end %>
 
 <div>
   <h4>xTunes Genres</h4>
@@ -32,12 +34,13 @@
 
         </td>
 
-        <td><small>
-          <%= link_to 'Details', genre %> |
-          <%= link_to 'Edit', edit_genre_path(genre) %> |
-          <%= link_to 'Delete', genre, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </small></td>
-
+        <% if admin_user %>
+          <td><small>
+            <%= link_to 'Details', genre %> |
+            <%= link_to 'Edit', edit_genre_path(genre) %> |
+            <%= link_to 'Delete', genre, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </small></td>
+        <% end %>
       </tr>
       <% end %>
     </table>

@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @albums = Album.order(:name)
   end

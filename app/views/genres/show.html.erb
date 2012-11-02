@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
   <div class="pull-right">
-    <small><%= link_to 'Edit', edit_genre_path(@genre) %> |
-    <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
-    <%= link_to 'Back', genres_path %> </small>
+    <small>
+      <% if admin_user %>
+        <%= link_to 'Edit', edit_genre_path(@genre) %> |
+        <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <% end %>
+        <%= link_to 'View all genres', genres_path %> </small>
+    </small>
   </div>
 
   <h4><%= @genre.name %></h4>

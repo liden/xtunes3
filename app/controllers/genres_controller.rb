@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @genres = Genre.order(:name)
   end

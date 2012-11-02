@@ -1,8 +1,10 @@
 <div class="pull-right">
   <small>
-    <%= link_to 'view this artist', @artist %> |
-    <%= link_to 'view all artists', artists_path %>
+    <%= link_to 'View this artist', @artist %> |
+    <%= link_to 'View all artists', artists_path %>
   </small>
 </div>
 
 <h4>Update an Artist</h4>
+
+<%= render 'form' %>

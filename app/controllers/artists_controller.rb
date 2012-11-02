@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @artists = Artist.order(:name)
   end
