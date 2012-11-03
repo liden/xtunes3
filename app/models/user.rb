@@ -16,8 +16,9 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :age, :gender, :avatar_file, :remote_avatar_file_url, :password, :password_confirmation, :admin, :song_ids
+  attr_accessible :email, :name, :age, :gender, :avatar_file, :remote_avatar_file_url, :password, :password_confirmation, :admin, :song_ids, :mixtape_ids
 
+  has_many :mixtapes
   has_and_belongs_to_many :songs
 
   # has_many :purchases
