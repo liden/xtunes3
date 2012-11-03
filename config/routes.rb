@@ -9,6 +9,7 @@ Xtunes3::Application.routes.draw do
   resources :albums
   resources :artists
   resources :genres
+  resources :mixtapes
   resources :posts
   resources :purchases
   resources :users

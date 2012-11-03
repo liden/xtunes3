@@ -1,0 +1,17 @@
+<%= simple_form_for @mixtape, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+
+  <%= f.association :songs, :collection => current_user.songs(:order => 'name') %>
+
+
+  <%= f.error :base %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-info' %>
+    <%= link_to 'cancel', mixtapes_path, :class => 'btn' %>
+  </div>
+
+<% end %>
