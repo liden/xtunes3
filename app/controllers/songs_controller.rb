@@ -35,7 +35,7 @@ class SongsController < ApplicationController
     @song = Song.new(params[:song])
 
     if @song.save
-      redirect_to song_path, notice: 'song was successfully created.'
+      redirect_to song_path(@song), notice: 'song was successfully created.'
     else
       render :new
     end
