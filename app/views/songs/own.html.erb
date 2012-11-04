@@ -1,23 +1,18 @@
 <div>
+
   <h4><%= current_user.name %>'s xTunes Songs</h4>
 
   <div class="row-fluid" "span12">
 
     <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Genre</th>
-          <th>Play</th>
-          <th></th>
-        </tr>
-      </thead>
 
-    <%= render :partial => 'shared/user_song', :collection => current_user.songs, :as => :song %>
+      <%= render :partial => 'shared/user_table_head' %>
 
+      <tbody>
+        <%= render :partial => 'shared/user_song', :collection => current_user.songs, :as => :song %>
+      </tbody>
     </table>
 
   </div>
+
 </div>
