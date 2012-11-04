@@ -1,48 +1,46 @@
- <tr>
+<tr>
 
-        <td><%= link_to song.name, song %></td>
+  <td><%= link_to song.name, song %></td>
 
-        <td>
-          <% song.artists.each do |artist|%>
-            <%= link_to artist.name, artist %></br>
-          <% end %>
-        </td>
+  <td>
+    <% song.artists.each do |artist|%>
+      <%= link_to artist.name, artist %></br>
+    <% end %>
+  </td>
 
-        <td>
-          <% song.albums.each do |album| %>
-            <%= link_to album.name, album %></br>
-          <% end %>
-        </td>
+  <td>
+    <% song.albums.each do |album| %>
+      <%= link_to album.name, album %></br>
+    <% end %>
+  </td>
 
-        <td>
-          <% song.genres.each do |genre|%>
-            <%= link_to genre.name, genre %></br>
-          <% end %>
-        </td>
+  <td>
+    <% song.genres.each do |genre|%>
+      <%= link_to genre.name, genre %></br>
+    <% end %>
+  </td>
 
-        <td>
-          <%= number_to_currency(song.price) %>
-        </td>
+  <td>
+    <%= number_to_currency(song.price) %>
+  </td>
 
-        <td>
+  <td>
+    <% if admin_user %>
+      <%= audio_tag(song.audiofile, :controls => true) %>
 
-          <% if (admin_user) %>
-            <%= audio_tag(song.audiofile, :controls => true) %>
+    <% elsif (current_user) && (current_user.songs.include?(song)) %>
+      <%= link_to('own', songs_collection_path, :class => 'btn btn-warning btn-mini') %>
 
-          <% elsif (current_user) && (current_user.songs.include?(song)) %>
-            <%= link_to('own', songs_collection_path, :class => 'btn btn-warning btn-mini') %>
+    <% else %>
+      <%= link_to('buy', buy_song_path(song), :class => 'btn btn-info btn-mini') %>
+    <% end %>
+  </td>
 
-          <% else %>
-            <%= link_to('buy', buy_song_path(song), :class => 'btn btn-info btn-mini') %>
-          <% end %>
-        </td>
+  <% if admin_user %>
+    <td><small>
+      <%= link_to 'Edit', edit_song_path(song) %> |
+      <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </small></td>
+  <% end %>
 
-        <% if admin_user %>
-          <td><small>
-            <%= link_to 'Details', song %> |
-            <%= link_to 'Edit', edit_song_path(song) %> |
-            <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small></td>
-        <% end %>
-
-      </tr>
+</tr>
