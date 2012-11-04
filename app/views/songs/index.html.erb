@@ -5,30 +5,19 @@
 <% end %>
 
 <div>
+
   <h4>xTunes Songs</h4>
 
   <div class="row-fluid" "span12">
 
     <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
+
+      <%= render :partial => 'shared/table_head' %>
 
       <tbody>
-
         <%= render :partial => 'shared/song', :collection => @songs, :as => :song %>
-
       </tbody>
-
     </table>
-
   </div>
+
 </div>
