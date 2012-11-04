@@ -25,7 +25,11 @@
         </td>
 
         <td>
-          <% if (current_user) && (current_user.songs.include?(song)) %>
+
+          <% if (admin_user) %>
+            <%= audio_tag(song.audiofile, :controls => true) %>
+
+          <% elsif (current_user) && (current_user.songs.include?(song)) %>
             <%= link_to('own', songs_collection_path, :class => 'btn btn-warning btn-mini') %>
 
           <% else %>
