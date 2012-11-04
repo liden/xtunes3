@@ -9,41 +9,38 @@
 
   <div class="row-fluid" "span12">
 
-    <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th>Genre</th>
-          <th>Song</th>
-          <th>Artist</th>
-          <th></th>
-        </tr>
-      </thead>
+    <% @genres.each do |genre| %>
 
-      <% @genres.each do |genre| %>
-      <tr>
-
-          <td><%= link_to genre.name, genre %></td>
-
-        <td>
-          <% genre.songs.each do |song| %>
-            <%= link_to song.name, song %><br/>
-          <% end %>
-        </td>
-
-        <td>
-
-        </td>
+      <div class="genre">
 
         <% if admin_user %>
-          <td><small>
+          <small>
             <%= link_to 'Details', genre %> |
             <%= link_to 'Edit', edit_genre_path(genre) %> |
             <%= link_to 'Delete', genre, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small></td>
+          </small>
         <% end %>
-      </tr>
+
+        <h5><%= link_to genre.name, genre %></h5>
+
+      <dl class="dl-horizontal">
+        <dt><small>Songs</small></dt>
+          <dd><small>
+            <% genre.songs.shuffle[0, 3].each do |song| %>
+            <%= link_to truncate(song.name, :length => 30 ), song %><br/>
+          <% end %>
+          </small></dd>
+        <dt><small>Albums</small></dt>
+          <dd><small>
+            <% genre.albums.shuffle.uniq[0, 2].each do |album| %>
+            <%= link_to truncate(album.name, :length => 30), album %><br/>
+          <% end %>
+          </small></dd>
+      </dl>
+
+      </div>
+
       <% end %>
-    </table>
 
   </div>
 </div>
