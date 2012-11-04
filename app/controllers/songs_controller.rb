@@ -35,7 +35,7 @@ class SongsController < ApplicationController
     @song = Song.new(params[:song])
 
     if @song.save
-      redirect_to songs_path, notice: 'song was successfully created.'
+      redirect_to song_path, notice: 'song was successfully created.'
     else
       render :new
     end
@@ -50,7 +50,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     if @song.update_attributes(params[:song])
-      redirect_to songs_path, notice: 'song was successfully updated.'
+      redirect_to song_path, notice: 'song was successfully updated.'
     else
       render :edit
     end
