@@ -85,15 +85,17 @@
         <%= render 'layouts/messages' %>
 
         <div class="content">
-           <div class="row">
-            <div class="span12">
 
-              <%= yield %>
-            </div>
-          </div>
+          <%= yield %>
+
           <footer>
+            <div class="row">
+              <div class="pull-right">
+                <small> © Copyright 2012. All rights reserved.</small>
+              </div>
+            </div>
           </footer>
-        </div>
+        </div> <!--! end of .content -->
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
 
