@@ -1,8 +1,7 @@
 class MixtapesController < ApplicationController
-  before_filter :not_current_user
 
   def index
-      @mixtapes = Mixtape.order(:name)
+    @mixtapes = Mixtape.order(:name)
   end
 
   def show
@@ -10,7 +9,7 @@ class MixtapesController < ApplicationController
   end
 
   def new
-    @mixtape = Mixtape.new
+      @mixtape = Mixtape.new
   end
 
   def create

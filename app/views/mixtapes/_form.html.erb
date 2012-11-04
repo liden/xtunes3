@@ -2,10 +2,10 @@
 
   <%= f.error_notification %>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.input :name %>
 
-  <%= f.association :songs, :collection => current_user.songs(:order => 'name') %>
-
+    <%= f.association :songs, :collection => current_user.songs(:order => 'name') %>
 
   <%= f.error :base %>
 
