@@ -1,63 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="pull-right">
+  <small>
+    <%= link_to 'View all songs', songs_path %>
+  </small>
+</div>
 
-  <div class="pull-right">
-    <small>
-      <% if admin_user %>
-        <%= link_to 'Edit', edit_song_path(@song) %> |
-        <%= link_to 'Delete', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <% end %>
-        <%= link_to 'View all songs', songs_path %>
-    </small>
-  </div>
-
+<div>
 
   <h4><%= @song.name %></h4>
 
-<div class="span12" "row-fluid">
-      <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th>Artist</th>
-            <th>Album</th>
-            <th>Genre</th>
-            <th>Time</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+  <div class="row-fluid" "span12">
 
-        <tbody>
-            <tr>
+    <table class="table table-condensed table-hover">
 
-              <td>
-                <% @song.artists.each do |artist|%>
-                  <%= link_to artist.name, artist %><br />
-                <% end %>
-              </td>
+      <%= render :partial => 'shared/table_head' %>
 
-              <td>
-                <% @song.albums.each do |album| %>
-                  <%= link_to album.name, album %><br />
-                <% end %>
-              </td>
-
-              <td><% @song.genres.each do |genre| %>
-                  <%= link_to genre.name, genre %><br />
-                <% end %>
-              </td>
-
-              <td> </td>
-
-              <td><%= number_to_currency(@song.price) %></td>
-
-              <td>
-                <%= audio_tag(@song.audiofile, :controls => true) if (current_user) && (current_user.songs.include?(@song)) %>
-              </td>
-
-              <td><% %></td>
-
-            </tr>
-        </tbody>
-      </table>
+      <tbody>
+        <%= render :partial => 'shared/song', :locals => {:song => @song} %>
+      </tbody>
+    </table>
+  </div>
 
 </div>
