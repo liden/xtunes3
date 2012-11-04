@@ -50,7 +50,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     if @song.update_attributes(params[:song])
-      redirect_to song_path, notice: 'song was successfully updated.'
+      redirect_to song_path(@song), notice: 'song was successfully updated.'
     else
       render :edit
     end

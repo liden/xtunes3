@@ -17,7 +17,7 @@ class GenresController < ApplicationController
     @genre = Genre.new(params[:genre])
 
     if @genre.save
-      redirect_to genres_path, notice: 'genre was successfully created.'
+      redirect_to genre_path(@genre), notice: 'genre was successfully created.'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
 
     if @genre.update_attributes(params[:genre])
-      redirect_to genres_path, notice: 'genre was successfully updated.'
+      redirect_to genre_path(@genre), notice: 'genre was successfully updated.'
     else
       render :edit
     end

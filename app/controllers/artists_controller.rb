@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(params[:artist])
 
     if @artist.save
-      redirect_to artists_path, notice: 'artist was successfully created.'
+      redirect_to artist_path(@artist), notice: 'artist was successfully created.'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
 
     if @artist.update_attributes(params[:artist])
-      redirect_to artists_path, notice: 'artist was successfully updated.'
+      redirect_to artist_path(@artist), notice: 'artist was successfully updated.'
     else
       render :edit
     end

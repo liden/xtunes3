@@ -21,7 +21,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(params[:album])
 
     if @album.save
-      redirect_to albums_path, notice: 'album was successfully created.'
+      redirect_to album_path(@album), notice: 'album was successfully created.'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
 
     if @album.update_attributes(params[:album])
-      redirect_to albums_path, notice: 'album was successfully updated.'
+      redirect_to album_path(@album), notice: 'album was successfully updated.'
     else
       render :edit
     end
