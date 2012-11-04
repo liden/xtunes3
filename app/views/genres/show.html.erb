@@ -16,7 +16,10 @@
 
     <div class="span3">
 
-      <p>lorem ipsum description of genre? sample genre albums, etc.</p>
+      <p><% @genre.albums.uniq.shuffle[0, 3].each do |album| %>
+        <%= image_tag(album.cover_file_url.to_s, :size => "225x225", :class => "img-polaroid")%><p />
+            <p><%= link_to album.name, album %></p><br/>
+      <% end %>
 
     </div>
 
