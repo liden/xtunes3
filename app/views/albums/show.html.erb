@@ -8,7 +8,6 @@
   </small>
 </div>
 
-
 <div>
 
   <h4><%= @album.name %></h4>
@@ -39,7 +38,7 @@
       <%= render :partial => 'shared/table_head' %>
 
         <tbody>
-          <%= render :partial => 'shared/song', :collection => @album.songs, :as => :song %>
+          <%= render :partial => 'shared/song', :collection => @album.songs.order(:name), :as => :song %>
         </tbody>
       </table>
     </div>

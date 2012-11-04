@@ -24,6 +24,8 @@
       <%= link_to (image_tag(album.cover_file_url.to_s, :size => "150x150", :class => "img-polaroid")), album %>
 
       <dl class="dl-horizontal">
+        <dt><small>Title</small></dt>
+          <dd><small><%= truncate(album.name, :length => 20) %></small></dd>
         <dt><small>Release</small></dt>
           <dd><small><%= album.release.year %></small></dd>
         <dt><small>Genres</small></dt>
