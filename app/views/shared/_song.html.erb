@@ -10,7 +10,7 @@
 
   <td>
     <% song.albums.each do |album| %>
-      <%= link_to album.name, album %></br>
+      <%= link_to (truncate(album.name, :length => 30)), album %></br>
     <% end %>
   </td>
 
