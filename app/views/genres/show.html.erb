@@ -1,61 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="pull-right">
+  <small>
+    <% if admin_user %>
+      <%= link_to 'Edit', edit_genre_path(@genre) %> |
+      <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %>
+      <%= link_to 'View all genres', genres_path %> </small>
+  </small>
+</div>
 
-  <div class="pull-right">
-    <small>
-      <% if admin_user %>
-        <%= link_to 'Edit', edit_genre_path(@genre) %> |
-        <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <% end %>
-        <%= link_to 'View all genres', genres_path %> </small>
-    </small>
-  </div>
+<div>
 
   <h4><%= @genre.name %></h4>
 
   <div class="row-fluid">
+
     <div class="span3">
 
-      <p>lorem ipsum description of genre?</p>
+      <p>lorem ipsum description of genre? sample genre albums, etc.</p>
 
     </div>
 
     <div class="span9">
-    <h6>SONGS</h6>
 
       <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Album</th>
-            <th>Time</th>
-            <th>Buy</th>
-          </tr>
-        </thead>
+
+      <%= render :partial => 'shared/table_head' %>
 
         <tbody>
-          <% @genre.songs.each do |song|%>
-            <tr>
-              <td><%= link_to song.name, song %></td>
-
-              <td>
-                <% song.artists.each do |artist| %>
-                  <%= link_to artist.name, artist %>
-                <% end %>
-              </td>
-
-              <td><% song.albums.each do |album| %>
-                  <%= link_to album.name, album %>
-                <% end %>
-              </td>
-
-              <td><%= number_to_currency(song.price) %></td>
-
-              <td><% %></td>
-
-            </tr>
-          <% end %>
+          <%= render :partial => 'shared/song', :collection => @genre.songs.order(:name), :as => :song %>
         </tbody>
       </table>
     </div>
+
+  </div>
+
 </div>
