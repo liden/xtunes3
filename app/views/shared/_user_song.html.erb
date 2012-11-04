@@ -1,0 +1,27 @@
+ <tr>
+
+        <td><%= link_to song.name, song %></td>
+
+        <td>
+          <% song.artists.each do |artist|%>
+            <%= link_to artist.name, artist %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <% song.albums.each do |album| %>
+            <%= link_to album.name, album %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <% song.genres.each do |genre|%>
+            <%= link_to genre.name, genre %></br>
+          <% end %>
+        </td>
+
+        <td>
+          <%= audio_tag(song.audiofile, :controls => true) %>
+        </td>
+
+      </tr>

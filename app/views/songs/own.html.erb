@@ -1,11 +1,5 @@
-<% if admin_user %>
-  <div class="pull-right">
-    <small><%= link_to 'Add a song', new_song_path %> </small>
-  </div>
-<% end %>
-
 <div>
-  <h4>xTunes Songs</h4>
+  <h4><%= current_user.name %>'s xTunes Songs</h4>
 
   <div class="row-fluid" "span12">
 
@@ -16,13 +10,12 @@
           <th>Artist</th>
           <th>Album</th>
           <th>Genre</th>
-          <th>Price</th>
-          <th></th>
+          <th>Play</th>
           <th></th>
         </tr>
       </thead>
 
-    <%= render :partial => 'shared/song', :collection => @songs, :as => :song %>
+    <%= render :partial => 'shared/user_song', :collection => current_user.songs, :as => :song %>
 
     </table>
 

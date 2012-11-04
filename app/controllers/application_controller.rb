@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin_user
 
-def not_current_user
+def must_be_current_user
   if !current_user
       redirect_to home_path, alert: 'Please sign up or login to buy and play songs and create and play mixtapes.'
   end
