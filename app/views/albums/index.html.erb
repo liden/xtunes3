@@ -30,7 +30,7 @@
           <dd><small><%= album.release.year %></small></dd>
         <dt><small>Genres</small></dt>
           <dd><small>
-            <% album.genres.uniq[0, 3].each do |genre| %>
+            <% album.genres.uniq.shuffle[0, 3].each do |genre| %>
              <%= link_to genre.name, genre %></br>
             <% end %>
           </small></dd>
