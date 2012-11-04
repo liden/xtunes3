@@ -13,9 +13,11 @@
       <thead>
         <tr>
           <th></th>
-          <th>Album</th>
-          <th>Artist</th>
           <th>Song</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Genre</th>
+          <th>Price</th>
           <th></th>
         </tr>
       </thead>
@@ -23,37 +25,34 @@
       <% @albums.each do |album| %>
       <tr>
 
-        <td><%= link_to (image_tag(album.cover_file_url.to_s, :size => "100x100")), album %></td>
+        <td rowspan="<%= album.songs.count + 1 %>">
+          <%= link_to (image_tag(album.cover_file_url.to_s, :size => "100x100")), album %>
 
-        <td>
-          <strong><%= link_to album.name, album %></strong></br>
-          <dl class="dl">
-            <dt><small>RELEASE</small></dt> <dd><%= album.release.year %></dd>
-          <dt><small>GENRE</small></dt> <% album.genres.uniq.each do |genre| %>
-            <dd><%= link_to genre.name, genre %></dd>
-          <% end %>
-          </dl>
-        </td>
-
-        <td>
-          <% album.artists.uniq.each do |artist| %>
-            <%= link_to artist.name, artist %></br>
-          <% end %>
-        </td>
-
-        <td>
-          <% album.songs.each do |song| %>
-            <%= link_to song.name, song %></br>
-          <% end %>
-        </td>
+        <dl class="dl-horizontal">
+          <dt><small>Release</small></dt>
+            <dd><small><%= album.release.year %></small></dd>
+          <dt><small>Genre</small></dt>
+            <dd><small>
+              <% album.genres.uniq.each do |genre| %>
+               <%= link_to genre.name, genre %></br>
+              <% end %>
+            </small></dd>
+        </dl>
 
         <% if admin_user %>
-          <td><small>
+          <small>
             <%= link_to 'Details', album %> |
             <%= link_to 'Edit', edit_album_path(album) %> |
             <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-          </small></td>
+          </small>
+
+        </td>
+      </tr>
+
+          <%= render :partial => 'shared/song', :collection => album.songs, :as => :song %>
+
+
       </tr>
       <% end %>
     </table>
