@@ -22,7 +22,11 @@
         </tr>
       </thead>
 
-    <%= render :partial => 'shared/song', :collection => @songs, :as => :song %>
+      <tbody>
+
+        <%= render :partial => 'shared/song', :collection => @songs, :as => :song %>
+
+      </tbody>
 
     </table>
 

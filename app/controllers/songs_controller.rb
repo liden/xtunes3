@@ -1,3 +1,4 @@
+
 class SongsController < ApplicationController
   before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
 
@@ -8,13 +9,14 @@ class SongsController < ApplicationController
           current_user.songs << song
           current_user.save
         end
-      redirect_to songs_path, notice: "\"#{song.name}\" was added to your collection."
+      redirect_to songs_collection_path, notice: "\"#{song.name}\" was added to your collection."
     else
       must_be_current_user
     end
   end
 
   def own
+
   end
 
   def index

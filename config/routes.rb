@@ -5,7 +5,8 @@ Xtunes3::Application.routes.draw do
   match '/login' => 'sessions#create', :via => :post
   match '/logout' => 'sessions#destroy'
   match '/signup' => 'users#new', :via => :get
-  match 'songs/collection' => 'songs#own', :via => :get
+  match 'songs/collection' => 'songs#own'
+  match 'albums/collection' => 'albums#own'
 
   resources :albums
   resources :artists
