@@ -9,53 +9,35 @@
 
   <div class="row-fluid" "span12">
 
-    <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
+    <% @albums.each do |album| %>
 
-      <% @albums.each do |album| %>
-      <tr>
+      <div class="album">
 
-        <td rowspan="<%= album.songs.count + 1 %>">
-          <%= link_to (image_tag(album.cover_file_url.to_s, :size => "100x100")), album %>
-
-        <dl class="dl-horizontal">
-          <dt><small>Release</small></dt>
-            <dd><small><%= album.release.year %></small></dd>
-          <dt><small>Genre</small></dt>
-            <dd><small>
-              <% album.genres.uniq.each do |genre| %>
-               <%= link_to genre.name, genre %></br>
-              <% end %>
-            </small></dd>
-        </dl>
-
-        <% if admin_user %>
-          <small>
-            <%= link_to 'Details', album %> |
-            <%= link_to 'Edit', edit_album_path(album) %> |
-            <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-          </small>
-
-        </td>
-      </tr>
-
-          <%= render :partial => 'shared/song', :collection => album.songs, :as => :song %>
-
-
-      </tr>
+      <% if admin_user %>
+        <small>
+          <%= link_to 'Details', album %> |
+          <%= link_to 'Edit', edit_album_path(album) %> |
+          <%= link_to 'Delete', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small>
       <% end %>
-    </table>
+
+      <%= link_to (image_tag(album.cover_file_url.to_s, :size => "150x150", :class => "img-polaroid")), album %>
+
+      <dl class="dl-horizontal">
+        <dt><small>Release</small></dt>
+          <dd><small><%= album.release.year %></small></dd>
+        <dt><small>Genres</small></dt>
+          <dd><small>
+            <% album.genres.uniq[0, 3].each do |genre| %>
+             <%= link_to genre.name, genre %></br>
+            <% end %>
+          </small></dd>
+      </dl>
+
+      </div>
+
+    <% end %>
 
   </div>
-</div>
+
+  </div>
