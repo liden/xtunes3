@@ -17,7 +17,11 @@
 
     <div class="span3">
 
-      <%= image_tag(@album.cover_file_url.to_s, :size => "225x225", :class => "img-polaroid") %>
+      <% if @album.cover_file.blank? %>
+        <%= image_tag("/assets/albumcover.png", :size => "225x225", :class => "img-polaroid") %>
+      <% else %>
+        <%= image_tag(@album.cover_file_url.to_s, :size => "225x225", :class => "img-polaroid") %>
+      <% end %>
 
       <dl class="dl-horizontal">
         <dt><small>Release</small></dt>

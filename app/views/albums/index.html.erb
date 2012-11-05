@@ -21,7 +21,13 @@
         </small>
       <% end %>
 
-        <p><%= link_to (image_tag(album.cover_file_url.to_s, :size => "150x150", :class => "img-polaroid")), album %></p>
+        <% if album.cover_file.blank? %>
+          <p><%= link_to (image_tag("/assets/albumcover.png", :size => "150x150", :class => "img-polaroid")), album %></p>
+        <% else %>
+          <p><%= link_to (image_tag(album.cover_file_url.to_s, :size => "150x150", :class => "img-polaroid")), album %></p>
+
+        <% end %>
+
         <p><strong><%= link_to truncate(album.name, :length => 22), album %></strong></p>
 
       <dl class="dl-horizontal">
