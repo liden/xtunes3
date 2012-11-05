@@ -1,7 +1,8 @@
 class MixtapesController < ApplicationController
+before_filter :must_be_current_user
 
   def index
-    @mixtapes = Mixtape.order(:name)
+      @mixtapes = Mixtape.all
   end
 
   def show
@@ -16,7 +17,7 @@ class MixtapesController < ApplicationController
     @mixtape = Mixtape.new(params[:mixtape])
 
     if @mixtape.save
-      redirect_to mixtapes_path, notice: 'mixtape was successfully created.'
+      redirect_to mixtape_path(@mixtape), notice: 'mixtape was successfully created.'
     else
       render :new
     end
@@ -30,7 +31,7 @@ class MixtapesController < ApplicationController
     @mixtape = Mixtape.find(params[:id])
 
     if @mixtape.update_attributes(params[:mixtape])
-      redirect_to mixtapes_path, notice: 'mixtape was successfully updated.'
+      redirect_to mixtape_path(@mixtape), notice: 'mixtape was successfully updated.'
     else
       render :edit
     end

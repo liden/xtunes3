@@ -18,7 +18,7 @@
         </tr>
       </thead>
 
-      <% @mixtapes.each do |mixtape| %>
+      <% current_user.mixtapes.each do |mixtape| %>
       <tr>
 
         <td><%= link_to mixtape.name, mixtape %></td>

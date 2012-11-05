@@ -53,7 +53,8 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown"href="/home"><%= "#{current_user.name}'s xTunes collection" %></a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "by song", songs_collection_path %></li>
+                    <li><%= link_to "my songs", songs_collection_path %></li>
+                    <li><%= link_to "my mixtapes", mixtapes_path %></li>
                   </ul>
               </li>
 
