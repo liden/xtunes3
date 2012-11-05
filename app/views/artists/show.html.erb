@@ -19,11 +19,12 @@
 
       <%= image_tag(@artist.photo_url.to_s, :size => "225x225", :class => "img-polaroid") %>
 
+      <% if !@artist.dob.blank? %>
       <dl class="dl-horizontal">
         <dt><small>Born</small></dt>
         <dd><small><%= @artist.dob.to_formatted_s(:long) %></small></dd>
       </dl>
-
+      <% end %>
       <small><%= @artist.bio %></small>
 
     </div>

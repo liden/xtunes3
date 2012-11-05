@@ -11,6 +11,8 @@
 
     <% @genres.each do |genre| %>
 
+    <% if !genre.songs.blank? %>
+
       <div class="genre">
 
         <% if admin_user %>
@@ -39,6 +41,7 @@
       </dl>
 
       </div>
+      <% end %>
 
       <% end %>
 

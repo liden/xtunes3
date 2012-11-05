@@ -25,14 +25,18 @@
         <p><strong><%= link_to truncate(album.name, :length => 22), album %></strong></p>
 
       <dl class="dl-horizontal">
+      <% if !album.release.blank? %>
         <dt><small>Release</small></dt>
           <dd><small><%= album.release.year %></small></dd>
+      <% end %>
+      <% if !album.genres.blank? %>
         <dt><small>Genres</small></dt>
           <dd><small>
             <% album.genres.uniq.shuffle[0, 3].each do |genre| %>
              <%= link_to genre.name, genre %></br>
             <% end %>
           </small></dd>
+      <% end %>
       </dl>
 
       </div>

@@ -24,14 +24,20 @@
         <p><%= link_to (image_tag(artist.photo.to_s, :size => "150x150", :class => "img-polaroid")), artist %></p>
         <p><strong><%= link_to truncate(artist.name, :length => 20), artist %></strong></p>
 
+      <% if !artist.albums.blank? %>
       <dl class="dl-horizontal">
+
         <dt><small>Albums</small></dt>
           <dd><small>
             <% artist.albums.order(:release).reverse.uniq[0, 3].each do |album| %>
              <%= link_to truncate(album.name, :length => 19), album %></br>
             <% end %>
           </small></dd>
+
       </dl>
+
+      <% end %>
+
 
       </div>
 
