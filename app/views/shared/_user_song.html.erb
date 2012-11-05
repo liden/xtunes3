@@ -24,4 +24,13 @@
           <%= audio_tag(song.audiofile, :controls => true) %>
         </td>
 
+        <td>
+          <% if song.is_favorite? %>
+            <%= link_to('fave!', home_path, :class => 'btn btn-danger btn-mini') %>
+
+          <% else %>
+            <%= link_to('fave?', home_path, :class => 'btn btn-mini') %>
+          <% end %>
+        </td>
+
       </tr>
