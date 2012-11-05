@@ -10,6 +10,7 @@ Xtunes3::Application.routes.draw do
 
   resources :albums
   resources :artists
+  resources :favorites
   resources :genres
   resources :mixtapes
   resources :posts

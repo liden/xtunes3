@@ -21,6 +21,9 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :mixtapes
   has_and_belongs_to_many :users
 
+  has_many :favorites
+  has_many :users, :through => :favorites
+
   # has_many :purchases
   # has_many :users, :through => :purchases
 
