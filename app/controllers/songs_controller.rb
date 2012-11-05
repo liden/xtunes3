@@ -1,6 +1,7 @@
 
 class SongsController < ApplicationController
   before_filter :not_authorized, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :must_be_current_user, only: [:own]
 
   def buy
     if current_user
