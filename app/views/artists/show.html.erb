@@ -35,7 +35,7 @@
 
         <h5>Albums</h5>
 
-        <% @artist.albums.order(:release).reverse.each do |album| %>
+        <% @artist.albums.order(:release).reverse.uniq.each do |album| %>
 
           <div class="album-artist">
 
