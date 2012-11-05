@@ -29,13 +29,13 @@
         <dt><small>Songs</small></dt>
           <dd><small>
             <% genre.songs.shuffle[0, 3].each do |song| %>
-            <%= link_to truncate(song.name, :length => 30 ), song %><br/>
+            <%= link_to truncate(song.name, :length => 25 ), song %><br/>
           <% end %>
           </small></dd>
         <dt><small>Albums</small></dt>
           <dd><small>
             <% genre.albums.shuffle.uniq[0, 2].each do |album| %>
-            <%= link_to truncate(album.name, :length => 30), album %><br/>
+            <%= link_to truncate(album.name, :length => 25), album %><br/>
           <% end %>
           </small></dd>
       </dl>
