@@ -2,17 +2,37 @@
 
   <h4><%= current_user.name %>'s xTunes Songs (by Album)</h4>
 
+  <% @albums.each do |album| %>
+
   <div class="row-fluid" "span12">
 
-    <table class="table table-condensed table-hover">
+    <div class="span3">
 
-      <%= render :partial => 'shared/user_table_head' %>
+      <%= link_to album.name, album %>
+    </div>
 
-      <tbody>
-        <%= render :partial => 'shared/user_song', :collection => current_user.songs(:album).name, :as => :song %>
-      </tbody>
-    </table>
+    <div class="span9">
+
+      <table class="table table-condensed table-hover">
+
+        <%= render :partial => 'shared/user_table_head' %>
+
+          <% album.songs.each do |song| %>
+
+            <% if (current_user.songs.include?(song)) %>
+
+            <%= render :partial => 'shared/user_song', :locals => {:song => song} %>
+
+            <% end %>
+
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
 
   </div>
+
+  <% end %>
 
 </div>
