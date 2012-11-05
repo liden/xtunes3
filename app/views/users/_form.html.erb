@@ -7,16 +7,19 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 
+  <% if admin_user %>
     <div class="field">
       <%= f.input :admin, :inline_label => 'Check here to allow admin privileges.' %><br />
   </div>
 
+  <% else %>
 
     <%= f.input :gender, :collection => [:male, :female] %>
     <%= f.input :age, :collection => 18..110 %>
     <%= f.input :avatar_file, label: 'Upload Avatar' %>
     <%= f.input :remote_avatar_file_url, label: 'Avatar Link' %>
 
+  <% end %>
 
   <%= f.error :base %>
 
