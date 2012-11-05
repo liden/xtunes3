@@ -13,7 +13,7 @@
 class Song < ActiveRecord::Base
   attr_accessible :name, :price, :audiofile, :remote_audiofile_url, :album_ids, :genre_ids, :artist_ids, :user_ids
 
-  validates :name, :price, :presence => true
+  validates :name, :price, :audiofile, :presence => true
 
   has_and_belongs_to_many :albums
   has_and_belongs_to_many :artists
