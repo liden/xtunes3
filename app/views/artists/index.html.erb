@@ -11,25 +11,24 @@
 
     <% @artists.each do |artist| %>
 
-      <div class="album">
+      <div class="artist">
 
       <% if admin_user %>
-        <td><small>
+        <small>
           <%= link_to 'Details', artist %> |
           <%= link_to 'Edit', edit_artist_path(artist) %> |
           <%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </small></td>
+        </small>
       <% end %>
 
-        <td><%= link_to (image_tag(artist.photo.to_s, :size => "150x150", :class => "img-polaroid")), artist %></td>
+        <p><%= link_to (image_tag(artist.photo.to_s, :size => "150x150", :class => "img-polaroid")), artist %></p>
+        <p><strong><%= link_to truncate(artist.name, :length => 20), artist %></strong></p>
 
       <dl class="dl-horizontal">
-        <dt><small>Artist</small></dt>
-          <dd><small><%= link_to truncate(artist.name, :length => 20), artist %></small></dd>
         <dt><small>Albums</small></dt>
           <dd><small>
             <% artist.albums.order(:release).reverse.uniq[0, 3].each do |album| %>
-             <%= link_to truncate(album.name, :length => 25), album %></br>
+             <%= link_to truncate(album.name, :length => 19), album %></br>
             <% end %>
           </small></dd>
       </dl>

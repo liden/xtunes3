@@ -9,7 +9,7 @@
       <%= render :partial => 'shared/user_table_head' %>
 
       <tbody>
-        <%= render :partial => 'shared/user_song', :collection => current_user.songs, :as => :song %>
+        <%= render :partial => 'shared/user_song', :collection => current_user.songs.order(:name), :as => :song %>
       </tbody>
     </table>
 

@@ -2,10 +2,24 @@
   body { padding-top: 60px; }
 
 .album {
-  height: 320px;
-  width: 160px;
+  height: 300px;
+  width: 165px;
   float: left;
-  padding: 10px 20px;
+  padding: 10px 22px;
+  margin: 10px;
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.artist {
+  height: 280px;
+  width: 165px;
+  float: left;
+  padding: 10px 22px;
   margin: 10px;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
@@ -16,10 +30,10 @@
 }
 
 .album-artist {
-  height: 270px;
-  width: 160px;
+  height: 235px;
+  width: 165px;
   float: left;
-  padding: 10px 15px;
+  padding: 10px 16px;
   margin: 10px;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;

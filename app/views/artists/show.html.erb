@@ -1,10 +1,11 @@
 <div class="pull-right">
   <small>
     <% if admin_user %>
-      <%= link_to 'Edit', edit_artist_path(@artist) %> |
-      <%= link_to 'Delete', @artist, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'New artist', new_artist_path %> |
+      <%= link_to 'View artists', artists_path %><br/>
+      <%= link_to 'Edit artist', edit_artist_path(@artist) %> |
+      <%= link_to 'Delete artist', @artist, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-      <%= link_to 'View all artists', artists_path %>
   </small>
 </div>
 
@@ -41,7 +42,7 @@
 
             <dl class="dl-horizontal">
               <dt><small>Title</small></dt>
-                <dd><small><%= album.name %></small></dd>
+                <dd><small><%= link_to truncate(album.name, :length => 30), album %></small></dd>
               <dt><small>Release</small></dt>
                 <dd><small><%= album.release.year %></small></dd>
             </dl>

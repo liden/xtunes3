@@ -12,9 +12,9 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Admin</th>
         </tr>
       </thead>
 
@@ -22,6 +22,9 @@
         <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
+          <td><%= user.age %></td>
+          <td><%= user.gender %></td>
+          <td><%= user.admin %></td>
           <td><small>
             <%= link_to 'Show', user %> |
             <%= link_to 'Edit', edit_user_path(user) %> |

@@ -1,6 +1,6 @@
  <tr>
 
-        <td><%= link_to song.name, song %></td>
+        <td><%= link_to truncate(song.name, :length => 20), song %></td>
 
         <td>
           <% song.artists.each do |artist|%>
@@ -10,7 +10,7 @@
 
         <td>
           <% song.albums.each do |album| %>
-            <%= link_to album.name, album %></br>
+            <%= link_to truncate(album.name, :length => 30), album %></br>
           <% end %>
         </td>
 

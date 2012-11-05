@@ -1,10 +1,11 @@
 <div class="pull-right">
   <small>
     <% if admin_user %>
-      <%= link_to 'Edit', edit_genre_path(@genre) %> |
-      <%= link_to 'Delete', @genre, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Add genre', new_genre_path %> |
+      <%= link_to 'View genres', genres_path %><br/>
+      <%= link_to 'Edit genre', edit_genre_path(@genre) %> |
+      <%= link_to 'Delete genre', @genre, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-      <%= link_to 'View all genres', genres_path %> </small>
   </small>
 </div>
 
