@@ -29,10 +29,10 @@
       <%= audio_tag(song.audiofile, :controls => true) %>
 
     <% elsif (current_user) && (current_user.songs.include?(song)) %>
-      <%= link_to('own', songs_collection_path, :class => 'btn btn-warning btn-mini') %>
+      <%= link_to('own', songs_collection_path, :class => 'btn btn-info btn-mini') %>
 
     <% else %>
-      <%= link_to('buy', buy_song_path(song), :class => 'btn btn-info btn-mini') %>
+      <%= link_to('buy', buy_song_path(song), :class => 'btn btn-warning btn-mini') %>
     <% end %>
   </td>
 
