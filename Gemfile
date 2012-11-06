@@ -9,9 +9,9 @@ gem 'annotate'
 gem 'thin'
 gem 'carrierwave'
 gem 'fog'
+gem 'pg'
 
 group :development, :test do
-  gem 'pg'
   gem 'foreman'
 end
 
@@ -20,10 +20,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   # gem 'rmagick'
-end
-
-group :production do
-  gem 'pg'
 end
 
 gem 'simple_form'
