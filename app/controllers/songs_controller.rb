@@ -18,6 +18,8 @@ class SongsController < ApplicationController
 
   def own
     @songs = current_user.songs
+    @search = @songs.search(params[:q])
+    @songs = @search.result
   end
 
   def index

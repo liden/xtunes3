@@ -2,14 +2,34 @@
 
   <h4><%= current_user.name %>'s xTunes Songs</h4>
 
+    <div class="pull-right">
+  <%= search_form_for @search do |f| %>
+
+    <div class="form-inline">
+      <%= f.label :name_cont, 'song title contains' %>
+      <%= f.text_field :name_cont %>
+      <%= f.submit 'go!', :class => 'btn btn-info' %>
+    </div>
+  <% end %>
+</div>
+
   <div class="row-fluid" "span12">
 
     <table class="table table-condensed table-hover">
 
-      <%= render :partial => 'shared/user_table_head' %>
+      <thead>
+        <tr>
+          <th><%= sort_link @search, :name, "Song" %></th>
+          <th><%= sort_link @search, :artist, "Artist" %></th>
+          <th><%= sort_link @search, :album, "Album" %></th>
+          <th><%= sort_link @search, :genre, "Genre" %></th>
+          <th>Play</th>
+          <th>Fave</th>
+        </tr>
+      </thead>
 
       <tbody>
-        <%= render :partial => 'shared/user_song', :collection => current_user.songs.order(:name), :as => :song %>
+        <%= render :partial => 'shared/user_song', :collection => @songs.order(:name), :as => :song %>
       </tbody>
     </table>
 
