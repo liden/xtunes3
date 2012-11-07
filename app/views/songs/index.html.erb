@@ -12,8 +12,9 @@
   <%= search_form_for @search do |f| %>
 
     <div class="form-inline">
+      <%= f.label :name_cont, 'song title contains' %>
       <%= f.text_field :name_cont %>
-      <%= f.submit 'search by song title', :class => 'btn btn-info' %>
+      <%= f.submit 'go!', :class => 'btn btn-info' %>
     </div>
   <% end %>
 </div>
