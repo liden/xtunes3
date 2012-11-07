@@ -25,11 +25,11 @@
         </td>
 
         <td>
-          <% if song.is_favorite? %>
-            <%= link_to('fave!', home_path, :class => 'btn btn-danger btn-mini') %>
+          <% if song.name? %>
+            <%= link_to('fave?', home_path, :class => 'btn btn-mini') %>
 
           <% else %>
-            <%= link_to('fave?', home_path, :class => 'btn btn-mini') %>
+            <%= link_to('fave!', home_path, :class => 'btn btn-danger btn-mini') %>
           <% end %>
         </td>
 
