@@ -17,11 +17,12 @@ class SongsController < ApplicationController
   end
 
   def own
-
+    @songs = current_user.songs
   end
 
   def index
-    @songs = Song.order(:name)
+    @search = Song.search(params[:q])
+    @songs = @search.result
   end
 
   def show

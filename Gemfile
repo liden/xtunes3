@@ -10,6 +10,7 @@ gem 'thin'
 gem 'carrierwave'
 gem 'fog'
 gem 'pg'
+gem 'ransack'
 
 group :development, :test do
   gem 'foreman'
