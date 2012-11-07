@@ -12,9 +12,8 @@
     <%= search_form_for @search do |f| %>
 
       <div class="form-inline">
-        <%= f.label :name_cont, 'song title contains' %>
         <%= f.text_field :name_cont %>
-        <%= f.submit 'go!', :class => 'btn btn-info' %>
+        <%= f.submit 'song title contains', :class => 'btn btn-info' %>
       </div>
     <% end %>
   </div>
@@ -26,9 +25,9 @@
       <thead>
         <tr>
           <th><%= sort_link @search, :name, "Song" %></th>
-          <th><%= sort_link @search, :artist, "Artist" %></th>
-          <th><%= sort_link @search, :album, "Album" %></th>
-          <th><%= sort_link @search, :genre, "Genre" %></th>
+          <th><%= sort_link @search, :artists_name, "Artist" %></th>
+          <th><%= sort_link @search, :albums_name, "Album" %></th>
+          <th><%= sort_link @search, :genres_name, "Genre" %></th>
           <th><%= sort_link @search, :price, "Price" %></th>
           <th></th>
           <th></th>
