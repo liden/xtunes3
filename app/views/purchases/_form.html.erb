@@ -1,0 +1,19 @@
+<%= simple_form_for @purchase, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.hidden_field :purchase_date, :value => Date.today %>
+
+  <%= f.hidden_field :price_paid, :value => song.price %>
+
+
+  <%= f.error :base %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-info' %>
+    <%= link_to 'cancel', songs_path, :class => 'btn' %>
+  </div>
+
+<% end %>
