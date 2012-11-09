@@ -17,7 +17,7 @@ before_filter :must_be_current_user
     @mixtape = Mixtape.new(params[:mixtape])
 
     if @mixtape.save
-      redirect_to mixtape_path(@mixtape), notice: 'mixtape was successfully created.'
+      redirect_to mixtape_path(@mixtape), notice: "#{@mixtape.name} was successfully created."
     else
       render :new
     end
@@ -31,7 +31,7 @@ before_filter :must_be_current_user
     @mixtape = Mixtape.find(params[:id])
 
     if @mixtape.update_attributes(params[:mixtape])
-      redirect_to mixtape_path(@mixtape), notice: 'mixtape was successfully updated.'
+      redirect_to mixtape_path(@mixtape), notice: "#{@mixtape.name} was successfully updated."
     else
       render :edit
     end
