@@ -1,3 +1,4 @@
+  <% favorite = song.favorites.find_by_user_id(current_user.id) %>
  <tr>
 
         <td><%= link_to truncate(song.name, :length => 20), song %></td>
@@ -25,11 +26,10 @@
         </td>
 
         <td>
-          <% if song.name? %>
-            <%= link_to('fave?', home_path, :class => 'btn btn-mini') %>
-
+          <% if favorite.is_fave? %>
+            <%= link_to('fave!', favorite, method: :post, :class => 'btn btn-danger btn-mini') %>
           <% else %>
-            <%= link_to('fave!', home_path, :class => 'btn btn-danger btn-mini') %>
+            <%= link_to('fave?', favorite, method: :post, :class => 'btn btn-mini') %>
           <% end %>
         </td>
 
