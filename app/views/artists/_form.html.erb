@@ -9,7 +9,7 @@
     :order => [:day, :month, :year] %>
   <%= f.input :photo, label: 'Upload Artist Photo' %>
   <%= f.input :remote_photo_url, label: 'Artist Photo Link' %>
-  <%= f.input :bio %>
+  <%= f.input :bio, :input_html => { :rows => 5 } %>
 
   <%= f.error :base %>
 
