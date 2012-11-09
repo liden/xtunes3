@@ -19,7 +19,6 @@ Xtunes3::Application.routes.draw do
 
   resources :songs do
     get 'buy', :on => :member
-    get 'fave', :on => :member
   end
 
   # The priority is based upon order of creation:
