@@ -18,9 +18,9 @@
         </small>
 
         <% if mixtape.mximg_file.blank? %>
-          <p><%= link_to (image_tag("/assets/albumcover.png", :size => "100x100", :class => "img-polaroid")), mixtape %></p>
+          <p><%= link_to (image_tag("/assets/mixtape.png", :size => "150x95", :class => "img-polaroid")), mixtape %></p>
         <% else %>
-          <p><%= link_to (image_tag(mixtape.mximg_file_url.to_s, :size => "100x100", :class => "img-polaroid")), mixtape %></p>
+          <p><%= link_to (image_tag(mixtape.mximg_file_url.to_s, :size => "150x95", :class => "img-polaroid")), mixtape %></p>
         <% end %>
 
         <p><strong><%= link_to mixtape.name, mixtape %></strong></p>

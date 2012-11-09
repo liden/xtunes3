@@ -15,6 +15,12 @@
 
     <div class="span3">
 
+      <% if @mixtape.mximg_file.blank? %>
+        <%= image_tag("/assets/mixtape.png", :size => "225x143", :class => "img-polaroid") %>
+      <% else %>
+        <%= image_tag(@mixtape.mximg_file_url.to_s, :size => "225x143", :class => "img-polaroid") %>
+      <% end %>
+
     </div>
 
     <div class="span9">
