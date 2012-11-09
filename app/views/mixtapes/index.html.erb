@@ -5,43 +5,39 @@
 <div>
   <h4><%= current_user.name %>'s xTunes Mixtapes</h4>
 
-    <% current_user.mixtapes.each do |mixtape| %>
+  <div class="row-fluid" "span12">
 
-      <div class="row-fluid" "span12">
+    <% current_user.mixtapes.order(:name).each do |mixtape| %>
 
-        <div class="span3">
+      <div class="mixtape">
 
-          <p><strong><%= link_to mixtape.name, mixtape %></strong></p>
+        <small>
+          <%= link_to 'Details', mixtape %> |
+          <%= link_to 'Edit', edit_mixtape_path(mixtape) %> |
+          <%= link_to 'Delete', mixtape, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </small>
 
-          <small>
-            <%= link_to 'Details', mixtape %> |
-            <%= link_to 'Edit', edit_mixtape_path(mixtape) %> |
-            <%= link_to 'Delete', mixtape, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </small>
+        <% if mixtape.mximg_file.blank? %>
+          <p><%= link_to (image_tag("/assets/albumcover.png", :size => "100x100", :class => "img-polaroid")), mixtape %></p>
+        <% else %>
+          <p><%= link_to (image_tag(mixtape.mximg_file_url.to_s, :size => "100x100", :class => "img-polaroid")), mixtape %></p>
+        <% end %>
 
-        </div>
+        <p><strong><%= link_to mixtape.name, mixtape %></strong></p>
 
-        <div class="span9">
-
-          <table class="table table-condensed table-hover">
-
-            <%= render :partial => 'shared/user_table_head' %>
-
-            <tbody>
-              <% mixtape.songs.each do |song| %>
-                <%= render :partial => 'shared/user_song', :locals => {:song => song} %>
+        <dl class="dl-horizontal">
+          <dt><small>Songs</small></dt>
+            <dd><small>
+              <% mixtape.songs.shuffle[0, 3].each do |song| %>
+               <%= link_to truncate(song.name, :length => 25), song %></br>
               <% end %>
-            </tbody>
-
-          </table>
-
-        </div>
-
-        <div class="span12">
-        </div>
+            </small></dd>
+        </dl>
 
       </div>
 
     <% end %>
+
+  </div>
 
 </div>

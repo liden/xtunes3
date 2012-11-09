@@ -5,7 +5,10 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.input :name %>
 
-    <%= f.association :songs, :collection => current_user.songs(:order => :name) %>
+  <%= f.association :songs, :collection => current_user.songs(:order => :name) %>
+
+  <%= f.input :mximg_file, label: 'Upload Mixtape Image' %>
+  <%= f.input :remote_mximg_file_url, label: 'Mixtape Image Link' %>
 
   <%= f.error :base %>
 

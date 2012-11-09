@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106022852) do
+ActiveRecord::Schema.define(:version => 20121109045742) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(:version => 20121106022852) do
   end
 
   create_table "favorites", :force => true do |t|
-    t.boolean  "favorite",   :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "song_id"
     t.integer  "user_id"
+    t.boolean  "is_fave",    :default => false
   end
 
   create_table "genres", :force => true do |t|
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20121106022852) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.string   "mximg_file"
   end
 
   create_table "mixtapes_songs", :id => false, :force => true do |t|
@@ -90,9 +91,10 @@ ActiveRecord::Schema.define(:version => 20121106022852) do
   create_table "songs", :force => true do |t|
     t.string   "name"
     t.decimal  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "audiofile"
+    t.boolean  "favorite",   :default => false
   end
 
   create_table "songs_users", :id => false, :force => true do |t|
