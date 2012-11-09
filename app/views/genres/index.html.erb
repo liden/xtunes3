@@ -27,7 +27,7 @@
             <dt><small>Songs</small></dt>
               <dd><small>
                 <% genre.songs.shuffle[0, 3].each do |song| %>
-                <%= link_to truncate(song.name, :length => 25 ), song %><br/>
+                <%= link_to truncate(song.name, :length => 25), song %><br/>
               <% end %>
               </small></dd>
             <dt><small>Albums</small></dt>
