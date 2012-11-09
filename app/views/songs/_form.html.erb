@@ -12,7 +12,6 @@
   <%= f.association :albums, :collection => Album.all(:order => 'name') %>
   <%= f.association :genres, :collection => Genre.all(:order => 'name') %>
 
-
   <hr>
   <h5>Add a New Artist</h5>
     <%= f.simple_fields_for :artists, :html => { :class => 'form-horizontal' } do |artist_form| %>
@@ -21,10 +20,24 @@
       <%= artist_form.input :dob, label: 'Date of Birth',
       :as => :date, :start_year => 1800,
       :end_year => Date.today.year - 10,
-      :order => [:day, :month, :year] %>
+      :order => [:day, :month, :year], :prompt => { :day => 'day', :month => 'month', :year => 'year'} %>
       <%= artist_form.input :photo, label: 'Upload Artist Photo' %>
       <%= artist_form.input :remote_photo_url, label: 'Artist Photo Link' %>
       <%= artist_form.input :bio, :input_html => { :rows => 5 } %>
+
+    <% end %>
+  <hr>
+
+  <hr>
+  <h5>Add a New Album</h5>
+    <%= f.simple_fields_for :albums, :html => { :class => 'form-horizontal' } do |album_form| %>
+
+    <%= album_form.input :name %>
+    <%= album_form.input :release, label: 'Release Date',
+    :as => :date, :start_year => 1910,
+    :order => [:day, :month, :year], :prompt => { :day => 'day', :month => 'month', :year => 'year'} %>
+    <%= album_form.input :cover_file, label: 'Upload Album Cover' %>
+    <%= album_form.input :remote_cover_file_url, label: 'Album Cover Link' %>
 
     <% end %>
   <hr>

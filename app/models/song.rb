@@ -11,7 +11,7 @@
 #
 
 class Song < ActiveRecord::Base
-  attr_accessible :name, :price, :audiofile, :remote_audiofile_url, :album_ids, :genre_ids, :artist_ids, :user_ids, :artists_attributes
+  attr_accessible :name, :price, :audiofile, :remote_audiofile_url, :album_ids, :genre_ids, :artist_ids, :user_ids, :artists_attributes, :albums_attributes
 
   validates :name, :price, :audiofile, :presence => true
 
@@ -27,7 +27,8 @@ class Song < ActiveRecord::Base
   # has_many :purchases
   # has_many :users, :through => :purchases
 
-  accepts_nested_attributes_for :artists
+  accepts_nested_attributes_for :artists, :reject_if => :all_blank
+  accepts_nested_attributes_for :albums, :reject_if => :all_blank
 
   mount_uploader :audiofile, AudiofileUploader
 

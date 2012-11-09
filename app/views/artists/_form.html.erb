@@ -4,9 +4,9 @@
 
   <%= f.input :name %>
   <%= f.input :dob, label: 'Date of Birth',
-    :as => :date, :start_year => 1800,
-    :end_year => Date.today.year - 10,
-    :order => [:day, :month, :year] %>
+      :as => :date, :start_year => 1800,
+      :end_year => Date.today.year - 10,
+      :order => [:day, :month, :year], :prompt => { :day => 'day', :month => 'month', :year => 'year'} %>
   <%= f.input :photo, label: 'Upload Artist Photo' %>
   <%= f.input :remote_photo_url, label: 'Artist Photo Link' %>
   <%= f.input :bio, :input_html => { :rows => 5 } %>

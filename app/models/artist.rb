@@ -17,7 +17,7 @@ class Artist < ActiveRecord::Base
   has_and_belongs_to_many :songs
   has_many :albums, :through => :songs
 
-  validates :name, :presence => :true
+  validates :name, :dob, :presence => :true
 
   mount_uploader :photo, PixfileUploader
 
