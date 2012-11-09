@@ -8,8 +8,24 @@
   <%= f.input :remote_audiofile_url, label: 'Audio File Link' %>
 
   <%= f.association :artists, :collection => Artist.all(:order => 'name') %>
+
   <%= f.association :albums, :collection => Album.all(:order => 'name') %>
   <%= f.association :genres, :collection => Genre.all(:order => 'name') %>
+
+    <h5>Add a New Artist</h5>
+  <%= f.simple_fields_for :artists, :html => { :class => 'form-horizontal' } do |artist_form| %>
+
+    <%= artist_form.input :name %>
+    <%= artist_form.input :dob, label: 'Date of Birth',
+    :as => :date, :start_year => 1800,
+    :end_year => Date.today.year - 10,
+    :order => [:day, :month, :year] %>
+    <%= artist_form.input :photo, label: 'Upload Artist Photo' %>
+    <%= artist_form.input :remote_photo_url, label: 'Artist Photo Link' %>
+    <%= artist_form.input :bio, :input_html => { :rows => 5 } %>
+
+  <% end %>
+  <hr>
 
   <%= f.error :base %>
 

@@ -33,6 +33,7 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @song.artists.build
   end
 
   def create
