@@ -11,7 +11,6 @@ gem 'carrierwave'
 gem 'fog'
 gem 'pg'
 gem 'ransack'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'foreman'
