@@ -1,18 +1,49 @@
-<div class="row">
+<div class="row-fluid">
+
   <div class="span1">
   </div>
 
-    <div class="span10">
-      <div class="hero-unit">
-        <h2>Welcome to xTunes! <small>Music on the go.</small></h2>
-          <br/>
-          <p>With xTunes, your music is in the cloud, so you can listen to your songs everywhere, using any web-connected device.</p>
-          <p>Sign up or log in to add songs to your collection, play songs in your collection, and organize your songs into mixtape playlists.</p>
-          <br/>
-          <div class="pull-right">
-            <%= link_to "sign up", signup_path, :class => 'btn btn-info btn-large' %>
-            <%= link_to "log in", login_path, :class => 'btn btn-info btn-large' %>
-          </div>
+  <div class="span7">
+    <div class="hero-unit">
+      <h2>Welcome to xTunes! <small>Music on the go.</small></h2>
+        <br/>
+        <p>With xTunes, your music is in the cloud, so you can listen to your songs anywhere, using any web-connected device.</p>
+        <p>Sign up or log in to add songs to your collection, play songs in your collection, or organize your songs into mixtapes.</p>
+        <br/>
+        <div class="pull-right">
+          <%= link_to "sign up", signup_path, :class => 'btn btn-info btn-large' %>
+          <%= link_to "log in", login_path, :class => 'btn btn-info btn-large' %>
         </div>
-    </div>
+      </div>
+  </div>
+
+  <div class="span3">
+    <% @songs.shuffle[0, 2].each do |song| %>
+      <div class="song-home">
+
+      <h5><%= link_to truncate(song.name, :length => 32), song %></h5>
+
+        <dl class="dl-horizontal">
+          <dt><small>Artist</small></dt>
+            <dd><small>
+              <% song.artists.each do |artist|%>
+                <%= link_to truncate(artist.name, :length => 32), artist %></br>
+              <% end %>
+            </small></dd>
+          <dt><small>Album</small></dt>
+            <dd><small>
+              <% song.albums.each do |album| %>
+                <%= link_to truncate(album.name, :length => 35), album %></br>
+              <% end %>
+            </small></dd>
+        </dl>
+
+        <div class="pull-right">
+          <small><strong><%= link_to "more songs", songs_path %></strong></small>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
 </div>
