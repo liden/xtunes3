@@ -7,6 +7,7 @@ Xtunes3::Application.routes.draw do
   match '/signup' => 'users#new', :via => :get
   match 'songs/collection' => 'songs#own'
   match 'albums/collection' => 'albums#own'
+  match '/favorites/:id' => 'favorites#update', :via => :post
 
   resources :albums
   resources :artists
@@ -19,8 +20,6 @@ Xtunes3::Application.routes.draw do
   resources :songs do
     get 'buy', :on => :member
   end
-
-  match '/favorites/:id' => 'favorites#update', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

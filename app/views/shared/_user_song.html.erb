@@ -26,7 +26,7 @@
         </td>
 
         <td>
-          <% if favorite.is_fave? %>
+          <% if favorite.is_fave %>
             <%= link_to('fave!', favorite, method: :post, :class => 'btn btn-danger btn-mini') %>
           <% else %>
             <%= link_to('fave?', favorite, method: :post, :class => 'btn btn-mini') %>
